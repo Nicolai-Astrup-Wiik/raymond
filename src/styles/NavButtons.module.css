@@ -1,0 +1,37 @@
+.main-button-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	height: 80px;
+}
+
+.nav-button,
+.nav-button-active {
+	font-size: larger;
+	background-color: transparent;
+	outline: none;
+	border: none;
+	width: 20rem;
+	transition: font-size 0.5s ease-in-out;
+}
+
+.nav-button-active {
+	font-size: x-large;
+	font-style: italic;
+
+}
+
+.nav-button:hover,
+.nav-button-active:hover {
+	font-size: x-large;
+	outline: none;
+	border: none;
+	font-style: italic;
+}
+
+.nav-button:focus,
+.nav-button-active:focus {
+	background: transparent;
+	outline: none;
+}
