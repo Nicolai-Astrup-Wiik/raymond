@@ -25,3 +25,7 @@
 	background: rgba(0, 0, 0, 0.5);
 	/* Optional: Add a semi-transparent background for readability */
 }
+
+.blurred {
+	filter: blur(5px); /* Adjust blur amount as needed */
+ }
