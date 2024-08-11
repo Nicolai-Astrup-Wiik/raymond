@@ -1,0 +1,17 @@
+.LoginForm{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	margin: 1rem;
+	gap: 1rem;
+}
+
+input{
+	height: 2rem;;
+	width: 50%;
+}
+
+button{
+	width: 50%;
+}

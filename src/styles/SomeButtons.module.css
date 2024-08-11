@@ -1,0 +1,28 @@
+
+.SomeButtonContainer{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	height: 80px;
+}
+
+
+.SomeButton{
+	outline: none;
+	background: transparent;
+}
+
+.SomeButton:hover{
+	outline: none;
+	border: none;
+	cursor: pointer;
+	
+}
+
+.SomeButton:focus{
+	border:none;
+	outline:none;
+}
+
+

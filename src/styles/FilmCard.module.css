@@ -19,8 +19,7 @@
 	width: 200px; /* Adjust image width as needed */
 	height: auto;
 	margin-right: 20px; /* Add spacing between image and content */
-	border-top-left-radius: 8px;
-	border-bottom-left-radius: 8px;
+	border-radius: 8px;
  }
  
  .card-content {

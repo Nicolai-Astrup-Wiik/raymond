@@ -1,7 +1,12 @@
 import React from 'react'
+import { SomeButtons } from './SomeButtons'
+import styles from '../styles/Footer.module.css'
 
 export const Footer = () => {
 	return (
-		<div>Footer</div>
+		<footer className={styles.footer}>
+			<p></p>
+			<SomeButtons></SomeButtons>
+		</footer>
 	)
 }
