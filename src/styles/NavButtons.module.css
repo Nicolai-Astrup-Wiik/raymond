@@ -14,11 +14,13 @@
 	border: none;
 	width: 20rem;
 	transition: font-size 0.5s ease-in-out;
+	border-radius: 0px;
 }
 
 .nav-button-active {
 	font-size: x-large;
 	font-style: italic;
+	border-bottom: 1px solid white;
 
 }
 
@@ -34,4 +36,5 @@
 .nav-button-active:focus {
 	background: transparent;
 	outline: none;
+	border-bottom: 1px solid white;
 }
