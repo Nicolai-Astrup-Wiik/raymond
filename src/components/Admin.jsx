@@ -1,19 +1,23 @@
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { addProject } from '../firebase/firebase.js';
+import styles from '../styles/Admin.module.css'
 
 export const Admin = () => {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 	const navigate = useNavigate();
 	const auth = getAuth();
 
+	const [projectValues, setProjectValues] = useState({ category: '', title: "", description: "", year: "" });
+
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
 			if (user) {
-				// User is signed in, set the authenticated state to true
+
 				setIsAuthenticated(true);
 			} else {
-				// User is signed out, redirect to login page
+
 				navigate('/login');
 			}
 		});
@@ -32,16 +36,51 @@ export const Admin = () => {
 		}
 	};
 
+	const handleCategoryInput = (e) => {
+		setProjectValues((prev) => ({ ...prev, category: e.target.value }));
+	};
+	const handleTitleInput = (e) => {
+		setProjectValues((prev) => ({ ...prev, title: e.target.value }));
+	};
+	const handleDescriptionInput = (e) => {
+		setProjectValues((prev) => ({ ...prev, description: e.target.value }));
+	};
+	const handleYearInput = (e) => {
+		setProjectValues((prev) => ({ ...prev, year: e.target.value }));
+	};
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		await addProject(projectValues);  // Call the addProject function with the form values
+		setProjectValues({ category: '', title: '', description: '', year: '' });  // Reset form values if needed
+	};
+
+
+	console.log(projectValues)
 	return (
 		<>
-			<form className={styles.LoginForm} onSubmit={handleLogin}>
-				<label> e-mail
-					<input name="email" onChange={handleEmailInput} type="email" />
+			<form className={styles.AddForm} onSubmit={addProject}>
+				<label>
+					<select name="category" onChange={handleCategoryInput}>
+						<option value="select value">select category</option>
+						<option value="dreamscores">Dreamscores</option>
+						<option value="big screen">Big Screen</option>
+						<option value="small screen">Small Screen</option>
+						<option value="stage">Stage</option>
+						<option value="arrangements">Arrangements</option>
+					</select>
 				</label>
-				<label> Password
-					<input name="password" type="password" onChange={handlePasswordInput} />
+				<label>
+					<input placeholder="Title" name="title" onChange={handleTitleInput} type="text" />
 				</label>
-				<button type="submit">Log in</button>
+				<label>
+					<input placeholder='description' name="description" onChange={handleDescriptionInput} type="text" />
+				</label>
+				<label>
+					<input name="year" onChange={handleYearInput} type="date" />
+				</label>
+
+
+				<button onClick={handleSubmit} type="submit">Add Project</button>
 			</form>
 
 
