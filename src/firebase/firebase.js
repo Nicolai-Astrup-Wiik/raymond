@@ -38,8 +38,17 @@ export const getProjects = async () => {
   });
 };
 
-export const addProject = async (input) => {
-  await addDoc(pRef, input);
+//export const addProject = async (input) => {
+//  await addDoc(pRef, input);
+//};
+
+export const addProject = async (project) => {
+  try {
+    const docRef = await addDoc(collection(db, "projects"), project);
+    console.log("Project added with ID:", docRef.id);
+  } catch (error) {
+    console.error("Error adding project:", error);
+  }
 };
 
 export async function firebaseLogin(email, password) {
