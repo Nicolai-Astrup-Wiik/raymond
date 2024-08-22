@@ -10,6 +10,7 @@ import {
   addDoc,
 } from "firebase/firestore";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -66,3 +67,16 @@ export async function firebaseLogin(email, password) {
     return { type: "error", message: errorMessage };
   }
 }
+
+export const storage = getStorage();
+
+const imagesRef = ref(storage, "images");
+
+export const uploadImage = async (file, fileName) => {
+  const storageRef = ref(storage, `images/${fileName}`);
+
+  // 'file' comes from the Blob or File API
+  await uploadBytes(storageRef, file).then((snapshot) => {
+    console.log("Uploaded a blob or file!");
+  });
+};

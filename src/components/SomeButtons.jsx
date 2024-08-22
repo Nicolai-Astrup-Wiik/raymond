@@ -11,11 +11,9 @@ export const SomeButtons = () => {
 					{/*<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 				<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->*/}
 					<svg width="50px" height="50" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-
 						<title>Spotify-color</title>
 						<desc>Created with Sketch.</desc>
 						<defs>
-
 						</defs>
 						<g id="Icons" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
 							<g id="Color-" transform="translate(-200.000000, -460.000000)" fill="#00DA5A">

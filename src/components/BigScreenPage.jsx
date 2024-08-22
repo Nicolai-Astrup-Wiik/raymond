@@ -9,6 +9,6 @@ import { ProjectsList } from './ProjectList.jsx'
 export const BigScreenPage = () => {
 	return (
 
-		<ProjectsList></ProjectsList>
+		<ProjectsList category={'bigscreen'}></ProjectsList>
 	)
 }

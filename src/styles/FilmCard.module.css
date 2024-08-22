@@ -1,7 +1,7 @@
 /* FilmCard.module.css */
 
 .film-card {
-	max-width: 600px; /* Adjust as needed */
+	width: 700px;
 	margin: 0 auto; /* Center the card horizontally */
 	padding: 20px;
 	background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
