@@ -3,13 +3,16 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addProject } from '../firebase/firebase.js';
 import styles from '../styles/Admin.module.css'
+import { uploadImage } from '../firebase/firebase.js';
 
 export const Admin = () => {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
+	const [selectedFile, setSelectedFile] = useState(null);
+
 	const navigate = useNavigate();
 	const auth = getAuth();
 
-	const [projectValues, setProjectValues] = useState({ category: '', title: "", description: "", year: "" });
+	const [projectValues, setProjectValues] = useState({ category: '', title: "", description: "", year: "", filename: "", });
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -48,10 +51,18 @@ export const Admin = () => {
 	const handleYearInput = (e) => {
 		setProjectValues((prev) => ({ ...prev, year: e.target.value }));
 	};
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		await addProject(projectValues);  // Call the addProject function with the form values
-		setProjectValues({ category: '', title: '', description: '', year: '' });  // Reset form values if needed
+		await uploadImage(selectedFile, selectedFile.name)
+		await addProject({ ...projectValues, filename: selectedFile.name });  // Call the addProject function with the form values
+		setProjectValues({ category: '', title: '', description: '', year: '', filename: '', });
+	};
+
+	const handleFileChange = (event) => {
+		// Access the file(s) from the input element
+		const file = event.target.files[0];
+		setSelectedFile(file);
 	};
 
 
@@ -59,7 +70,16 @@ export const Admin = () => {
 	return (
 		<>
 			<form className={styles.AddForm} onSubmit={addProject}>
-				<label>
+				<div style={{
+					display: "flex",
+					flexDirection: "column",
+					gap: "10px",
+					alignItems: 'center',
+					width: "300px"
+				}}>
+
+
+
 					<select name="category" onChange={handleCategoryInput}>
 						<option value="select value">select category</option>
 						<option value="dreamscores">Dreamscores</option>
@@ -68,26 +88,27 @@ export const Admin = () => {
 						<option value="stage">Stage</option>
 						<option value="arrangements">Arrangements</option>
 					</select>
-				</label>
-				<label>
+
+
 					<input placeholder="Title" name="title" onChange={handleTitleInput} type="text" />
-				</label>
-				<label>
+
+
 					<input placeholder='description' name="description" onChange={handleDescriptionInput} type="text" />
-				</label>
-				<label>
+
+
 					<input name="year" onChange={handleYearInput} type="date" />
-				</label>
+
+					<input name="img" type="file" onChange={handleFileChange} />
+
+					<button onClick={handleSubmit} type="submit">Add Project</button>
 
 
-				<button onClick={handleSubmit} type="submit">Add Project</button>
+
+					<button onClick={handleLogout}>
+						Log out
+					</button>
+				</div>
 			</form>
-
-
-
-			<button onClick={handleLogout}>
-				Log out
-			</button>
 		</>
 	);
 };

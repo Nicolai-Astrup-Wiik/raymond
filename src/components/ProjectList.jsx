@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { FilmCard } from './FilmCard';
 
-export const ProjectsList = () => {
+export const ProjectsList = ({ category }) => {
 	const [projects, setProjects] = useState([]);
 	const db = getFirestore();
 
@@ -23,12 +23,21 @@ export const ProjectsList = () => {
 	}, [db]);
 
 	return (
-		<div>
-			{projects.map((project, index) => (
+		<div style={{
+			display: "flex",
+			flexDirection: "column",
+			gap: "10px"
+		}}>
+			{projects.filter((project) => {
+				return project.category === category
+			}).map((project, index) => (
 				<FilmCard
 					key={index}
 					title={project.title}
 					text={project.text}
+					filename={project.filename}
+					date={project.date}
+
 				/>
 			))}
 		</div>
