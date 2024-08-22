@@ -16,7 +16,7 @@ export const Background = ({ children }) => {
 
   return (
     <div className={styles['background-video-div']}>
-      <video ref={videoRef} className={styles['background-video']} autoPlay loop muted src={videoBG} />
+      <video src="https://mega.nz/embed/7JVTwbSC#XUDUNNwJgr1TmEVqR_RI6DBvlxNeglndiwyOFRbhYk8" className={styles['background-video']} autoPlay loop muted src={videoBG} />
       <div style={{ maxWidth: "100vw" }}>
 
         <Header />
