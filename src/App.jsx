@@ -20,6 +20,7 @@ import { ProjectsList } from './components/ProjectList'
 import { SmallScreenPage } from './components/SmallScreenPage'
 import { StagePage } from './components/StagePage'
 import { ArrangementsPage } from './components/ArrangementsPage'
+import { BioCard } from './components/BioCard'
 //import { SomeButtons } from './components/SomeButtons'
 
 
@@ -39,7 +40,7 @@ function App() {
 
         {/*<FadeTransition location={location}>*/}
         <Routes location={location}>
-          <Route path="/" element={<div> </div>} />
+          <Route path="/" element={<BioCard />} />
           <Route path="/dreamscores" element={<DreamscoresPage />} />
           <Route path="/bigScreen" element={<ProjectsList category={'big screen'} />} />
           <Route path="/smallScreen" element={<ProjectsList category={'small screen'} />} />
