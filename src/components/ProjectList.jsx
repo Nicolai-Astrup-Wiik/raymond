@@ -20,8 +20,12 @@ export const ProjectsList = ({ category }) => {
 				const sortedProjects = projectList
 					.filter(project => project.year) // Ensure 'year' exists
 					.sort((a, b) => {
-						// Compare 'year' values numerically
-						return b.year - a.year; // Sort in descending order (latest year first)
+						// Extract the year as a number
+						const yearA = parseInt(a.year.split('-')[0], 10);
+						const yearB = parseInt(b.year.split('-')[0], 10);
+
+						// Compare the years numerically
+						return yearB - yearA; // Sort in descending order (latest year first)
 					});
 
 				// Debugging: Log sorted data
