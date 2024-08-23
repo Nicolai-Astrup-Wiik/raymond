@@ -5,12 +5,14 @@
 	align-items: center;
 	justify-content: space-between;
 	height: 80px;
+	width: fit-content;
 }
 
 
 .SomeButton{
 	outline: none;
 	background: transparent;
+	border: none;
 }
 
 .SomeButton:hover{

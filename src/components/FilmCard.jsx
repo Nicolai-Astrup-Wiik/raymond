@@ -7,7 +7,7 @@ import { storage } from '../firebase/firebase';
 
 
 
-export const FilmCard = ({ title, filename, text, date }) => {
+export const FilmCard = ({ title, filename, text, year, spotifyLink }) => {
 
 	const [url, setUrl] = useState(undefined)
 
@@ -19,13 +19,20 @@ export const FilmCard = ({ title, filename, text, date }) => {
 		)
 	}, [filename])
 
+	const extractedYear = year ? year.split('-')[0] : '';
+
 	return (
 		<Card>
 			<div className={styles['film-card-content']}>
 				<img style={{ displa: "cover" }} src={url ?? raymondImage} alt={title} className={styles['film-card-image']} />
 				<div className={styles['card-content']}>
-					<h2 className={styles['card-title']}>{title}</h2>
+					<h2 className={styles['card-title']}>{title} - {extractedYear}</h2>
 					<p className={styles['card-text']}>{text}</p>
+					{spotifyLink && (
+						<a href={spotifyLink} target="_blank" rel="noopener noreferrer" className={styles['spotify-button']}>
+							Listen on Spotify
+						</a>
+					)}
 				</div>
 			</div>
 		</Card>

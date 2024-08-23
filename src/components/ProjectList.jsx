@@ -12,8 +12,22 @@ export const ProjectsList = ({ category }) => {
 				const projectsCollection = collection(db, 'projects');
 				const projectSnapshot = await getDocs(projectsCollection);
 				const projectList = projectSnapshot.docs.map(doc => doc.data());
-				setProjects(projectList);
-				console.log(projectList);
+
+				// Debugging: Log fetched data
+				console.log('Fetched Projects:', projectList);
+
+				// Ensure 'year' is valid and sort
+				const sortedProjects = projectList
+					.filter(project => project.year) // Ensure 'year' exists
+					.sort((a, b) => {
+						// Compare 'year' values numerically
+						return b.year - a.year; // Sort in descending order (latest year first)
+					});
+
+				// Debugging: Log sorted data
+				console.log('Sorted Projects:', sortedProjects);
+
+				setProjects(sortedProjects);
 			} catch (error) {
 				console.error('Error fetching projects:', error);
 			}
@@ -28,16 +42,14 @@ export const ProjectsList = ({ category }) => {
 			flexDirection: "column",
 			gap: "10px"
 		}}>
-			{projects.filter((project) => {
-				return project.category === category
-			}).map((project, index) => (
+			{projects.filter((project) => project.category === category).map((project, index) => (
 				<FilmCard
 					key={index}
 					title={project.title}
-					text={project.text}
+					text={project.description}
 					filename={project.filename}
-					date={project.date}
-
+					year={project.year}
+					spotifyLink={project.spotifyLink}
 				/>
 			))}
 		</div>

@@ -12,7 +12,7 @@ export const Admin = () => {
 	const navigate = useNavigate();
 	const auth = getAuth();
 
-	const [projectValues, setProjectValues] = useState({ category: '', title: "", description: "", year: "", filename: "", });
+	const [projectValues, setProjectValues] = useState({ category: '', title: "", description: "", year: "", filename: "", spotifyLink: "" });
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -51,12 +51,15 @@ export const Admin = () => {
 	const handleYearInput = (e) => {
 		setProjectValues((prev) => ({ ...prev, year: e.target.value }));
 	};
+	const handleSpotifyInput = (e) => {
+		setProjectValues((prev) => ({ ...prev, spotifyLink: e.target.value }));
+	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		await uploadImage(selectedFile, selectedFile.name)
 		await addProject({ ...projectValues, filename: selectedFile.name });  // Call the addProject function with the form values
-		setProjectValues({ category: '', title: '', description: '', year: '', filename: '', });
+		setProjectValues({ category: '', title: '', description: '', year: '', filename: '', spotifyLink: '', });
 	};
 
 	const handleFileChange = (event) => {
@@ -98,7 +101,11 @@ export const Admin = () => {
 
 					<input name="year" onChange={handleYearInput} type="date" />
 
+					<input placeholder='Spotify link' onChange={handleSpotifyInput} name="spotifyLink" type="text" />
+
 					<input name="img" type="file" onChange={handleFileChange} />
+
+
 
 					<button onClick={handleSubmit} type="submit">Add Project</button>
 
