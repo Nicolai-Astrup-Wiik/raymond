@@ -5,3 +5,11 @@
 	justify-content: space-between;
 	align-items: center;
 }
+
+.AddForm input{
+	background-color: darkslategray;
+}
+
+select{
+	background-color: darkslateblue;
+}

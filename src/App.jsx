@@ -39,10 +39,10 @@ function App() {
 
         {/*<FadeTransition location={location}>*/}
         <Routes location={location}>
-          <Route path="/" element={<div></div>} />
+          <Route path="/" element={<div> </div>} />
           <Route path="/dreamscores" element={<DreamscoresPage />} />
-          <Route path="/bigScreen" element={<ProjectsList category={'bigscreen'} />} />
-          <Route path="/smallScreen" element={<ProjectsList category={'smallscreen'} />} />
+          <Route path="/bigScreen" element={<ProjectsList category={'big screen'} />} />
+          <Route path="/smallScreen" element={<ProjectsList category={'small screen'} />} />
           <Route path="/stage" element={<ProjectsList category={'stage'} />} />
           <Route path="/arrangements" element={<ProjectsList category={'arrangements'} />} />
           <Route path='/login' element={<LoginForm onLoginSuccess={setUser} />} />
