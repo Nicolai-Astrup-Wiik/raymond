@@ -47,10 +47,36 @@
 	border-bottom: 1px solid white;
 }
 
-@media (max-width: 400px) {
+/* NavButtons.module.css */
+
+/* Existing desktop styles remain unchanged */
+
+/* Mobile Styles */
+@media (max-width: 768px) {
 	.main-button-container {
-		flex-direction: column;
-		height: auto; /* Adjust height to fit content */
-		justify-content: center; /* Optional: center the items vertically */
+		 overflow-x: scroll;
+		 scroll-snap-type: x mandatory;
+		 scroll-behavior: smooth;
+		 display: flex;
+		 gap: 10px;
+		 scrollbar-width: none; /* Hide scrollbar on Firefox */
+		 -ms-overflow-style: none; /* Hide scrollbar on IE and Edge */
+	}
+
+	.main-button-container::-webkit-scrollbar {
+		 display: none; /* Hide scrollbar on Chrome, Safari, and Opera */
+	}
+
+	.main-button-container > button {
+		 scroll-snap-align: center;
+		 flex-shrink: 0;
+	}
+
+	.nav-button{
+		scroll-snap-align: center;
+	}
+
+	.nav-button:hover{
+
 	}
 }
