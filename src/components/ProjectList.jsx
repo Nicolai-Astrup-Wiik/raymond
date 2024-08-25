@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
 import { FilmCard } from './FilmCard';
 
-export const ProjectsList = ({ category }) => {
+export const ProjectsList = ({ category, user }) => {
 	const [projects, setProjects] = useState([]);
 	const db = getFirestore();
 
@@ -11,25 +11,16 @@ export const ProjectsList = ({ category }) => {
 			try {
 				const projectsCollection = collection(db, 'projects');
 				const projectSnapshot = await getDocs(projectsCollection);
-				const projectList = projectSnapshot.docs.map(doc => doc.data());
-
-				// Debugging: Log fetched data
-				console.log('Fetched Projects:', projectList);
+				const projectList = projectSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
 				// Ensure 'year' is valid and sort
 				const sortedProjects = projectList
 					.filter(project => project.year) // Ensure 'year' exists
 					.sort((a, b) => {
-						// Extract the year as a number
 						const yearA = parseInt(a.year.split('-')[0], 10);
 						const yearB = parseInt(b.year.split('-')[0], 10);
-
-						// Compare the years numerically
 						return yearB - yearA; // Sort in descending order (latest year first)
 					});
-
-				// Debugging: Log sorted data
-				console.log('Sorted Projects:', sortedProjects);
 
 				setProjects(sortedProjects);
 			} catch (error) {
@@ -40,20 +31,31 @@ export const ProjectsList = ({ category }) => {
 		fetchProjects();
 	}, [db]);
 
+	const handleDelete = async (id) => {
+		try {
+			await deleteDoc(doc(db, 'projects', id));
+			setProjects(projects.filter(project => project.id !== id)); // Remove deleted project from state
+		} catch (error) {
+			console.error('Error deleting project:', error);
+		}
+	};
+
 	return (
 		<div style={{
 			display: "flex",
 			flexDirection: "column",
 			gap: "10px"
 		}}>
-			{projects.filter((project) => project.category === category).map((project, index) => (
+			{projects.filter((project) => project.category === category).map((project) => (
 				<FilmCard
-					key={index}
+					key={project.id}
 					title={project.title}
 					text={project.description}
 					filename={project.filename}
 					year={project.year}
 					spotifyLink={project.spotifyLink}
+					onDelete={() => handleDelete(project.id)}
+					isAuthenticated={!!user} // Pass the user state to FilmCard
 				/>
 			))}
 		</div>
