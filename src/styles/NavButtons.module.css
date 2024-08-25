@@ -7,6 +7,10 @@
 	/*padding: 0px 10px*/
 }
 
+.nav-button{
+	cursor: pointer;
+}
+
 .nav-button,
 .nav-button-active {
 	font-size: larger;
@@ -17,12 +21,14 @@
 	transition: font-size 0.5s ease-in-out;
 	border-radius: 0px;
 	white-space: nowrap;
+
 }
 
 .nav-button-active {
 	font-size: x-large;
 	font-style: italic;
 	border-bottom: 1px solid white;
+	
 
 }
 

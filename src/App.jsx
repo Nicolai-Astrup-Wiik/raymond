@@ -23,39 +23,27 @@ import { ArrangementsPage } from './components/ArrangementsPage'
 import { BioCard } from './components/BioCard'
 //import { SomeButtons } from './components/SomeButtons'
 
-
-
-
-
-
-
 function App() {
-  //const location = useLocation();
   const [user, setUser] = useState(undefined);
-  return (
 
+  return (
     <BrowserRouter>
       <Background>
         <NavButtons />
-
-        {/*<FadeTransition location={location}>*/}
-        <Routes location={location}>
+        <Routes>
           <Route path="/" element={<BioCard />} />
           <Route path="/dreamscores" element={<DreamscoresPage />} />
-          <Route path="/bigScreen" element={<ProjectsList category={'big screen'} />} />
-          <Route path="/smallScreen" element={<ProjectsList category={'small screen'} />} />
-          <Route path="/stage" element={<ProjectsList category={'stage'} />} />
-          <Route path="/arrangements" element={<ProjectsList category={'arrangements'} />} />
+          <Route path="/bigScreen" element={<ProjectsList category={'big screen'} user={user} />} />
+          <Route path="/smallScreen" element={<ProjectsList category={'small screen'} user={user} />} />
+          <Route path="/stage" element={<ProjectsList category={'stage'} user={user} />} />
+          <Route path="/arrangements" element={<ProjectsList category={'arrangements'} user={user} />} />
           <Route path='/login' element={<LoginForm onLoginSuccess={setUser} />} />
           <Route path='/admin' element={<Admin />} />
         </Routes>
-        {/*</FadeTransition>*/}
         <Footer></Footer>
       </Background>
-
     </BrowserRouter>
-
-  )
+  );
 }
 
 export default App
