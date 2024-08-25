@@ -84,3 +84,46 @@
 	background-color: #c0392b;
 }
 
+
+
+@media (max-width: 768px) {
+
+	.film-card {
+		width: 100%; /* Full width on smaller screens */
+		padding: 10px; /* Reduce padding */
+		margin-right: 10px;
+	}
+
+	.film-card-content {
+		flex-direction: column; /* Stack image and content vertically */
+		align-items: flex-start;
+	}
+
+	.film-card-image {
+		width: 100%; /* Full width of the container */
+		margin-right: 0; /* Remove margin */
+		margin-bottom: 10px; /* Add space below the image */
+	}
+
+	.card-title {
+		font-size: 1.25rem; /* Adjust font size for smaller screens */
+	}
+
+	.card-text {
+		font-size: 0.875rem; /* Adjust font size for smaller screens */
+	}
+
+	.spotify-button {
+		width: 100%; /* Full width button on smaller screens */
+		padding: 12px;
+		font-size: 0.875rem;
+	}
+
+	.delete-button {
+		position: static; /* Remove absolute positioning */
+		margin-top: 10px; /* Space at the top */
+	}
+
+
+
+}
