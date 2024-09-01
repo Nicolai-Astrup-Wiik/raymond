@@ -1,16 +1,11 @@
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { addProject } from '../firebase/firebase.js';
+import { addProject, uploadImage } from '../firebase/firebase.js';
+import { getAuth, signOut } from 'firebase/auth';
 import styles from '../styles/Admin.module.css';
-import { uploadImage } from '../firebase/firebase.js';
 
-export const Admin = () => {
-	const [isAuthenticated, setIsAuthenticated] = useState(false);
+export const Admin = ({ isAuthenticated }) => {
 	const [selectedFile, setSelectedFile] = useState(null);
-	const navigate = useNavigate();
-	const auth = getAuth();
-
 	const [projectValues, setProjectValues] = useState({
 		category: '',
 		title: "",
@@ -19,23 +14,12 @@ export const Admin = () => {
 		filename: "",
 		spotifyLink: ""
 	});
-
-	useEffect(() => {
-		const unsubscribe = onAuthStateChanged(auth, (user) => {
-			if (user) {
-				setIsAuthenticated(true);
-			} else {
-				navigate('/login');
-			}
-		});
-
-		return () => unsubscribe();
-	}, [auth, navigate]);
+	const navigate = useNavigate();
+	const auth = getAuth();
 
 	const handleLogout = async () => {
 		try {
 			await signOut(auth);
-			console.log("User signed out successfully");
 			navigate("/login");
 		} catch (error) {
 			console.error("Error signing out:", error);
@@ -57,12 +41,8 @@ export const Admin = () => {
 		await uploadImage(selectedFile, selectedFile.name);
 		await addProject({ ...projectValues, filename: selectedFile.name });
 		setProjectValues({ category: '', title: '', description: '', year: '', filename: '', spotifyLink: '' });
-		// Reset the form fields and selected file
-		setProjectValues({ category: '', title: '', description: '', year: '', filename: '', spotifyLink: '' });
 		setSelectedFile(null);
-
-		// Reset the file input value
-		e.target.reset(); // This resets the entire form including file input
+		e.target.reset();
 	};
 
 	return (
@@ -75,7 +55,7 @@ export const Admin = () => {
 						<option value="big screen">Big Screen</option>
 						<option value="small screen">Small Screen</option>
 						<option value="stage">Stage</option>
-						<option value="arrangements">Arrangements</option>
+						<option value="licensing">Licensing</option>
 					</select>
 				</div>
 				<div className={styles.InputWrapper}>
@@ -95,7 +75,9 @@ export const Admin = () => {
 				</div>
 				<div className={styles.ButtonWrapper}>
 					<button type="submit">Add Project</button>
-					<button type="button" onClick={handleLogout}>Log out</button>
+					{isAuthenticated && (
+						<button type="button" onClick={handleLogout}>Log out</button>
+					)}
 				</div>
 			</form>
 		</div>

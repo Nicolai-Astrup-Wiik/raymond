@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import React from 'react'
 import { Header } from './components/Header'
@@ -7,7 +7,6 @@ import { Background } from './components/Background'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { DreamscoresPage } from './components/DreamscoresPage'
 import { NavButtons } from './components/NavButtons'
-import { FilterButtons } from './components/FilterButtons'
 import { Card } from './components/Card'
 import { FilmCard } from './components/FilmCard'
 import FadeTransition from './transitions'
@@ -21,29 +20,39 @@ import { SmallScreenPage } from './components/SmallScreenPage'
 import { StagePage } from './components/StagePage'
 import { ArrangementsPage } from './components/ArrangementsPage'
 import { BioCard } from './components/BioCard'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 //import { SomeButtons } from './components/SomeButtons'
 
 function App() {
-  const [user, setUser] = useState(undefined);
+  const [user, setUser] = useState(null);
+  const auth = getAuth();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+
+    return () => unsubscribe();
+  }, [auth]);
 
   return (
     <BrowserRouter>
-      <Background>
+      <Background isAuthenticated={!!user}>
         <NavButtons />
         <Routes>
           <Route path="/" element={<BioCard />} />
-          <Route path="/dreamscores" element={<DreamscoresPage />} />
+          <Route path="/dreamscores" element={<><ProjectsList category={'dreamscores'} user={user} /><DreamscoresPage /></>} />
           <Route path="/bigScreen" element={<ProjectsList category={'big screen'} user={user} />} />
           <Route path="/smallScreen" element={<ProjectsList category={'small screen'} user={user} />} />
           <Route path="/stage" element={<ProjectsList category={'stage'} user={user} />} />
-          <Route path="/arrangements" element={<ProjectsList category={'arrangements'} user={user} />} />
+          <Route path="/licensing" element={<ProjectsList category={'licensing'} user={user} />} />
           <Route path='/login' element={<LoginForm onLoginSuccess={setUser} />} />
-          <Route path='/admin' element={<Admin />} />
+          <Route path='/admin' element={<Admin isAuthenticated={!!user} />} />
         </Routes>
-        <Footer></Footer>
+        <Footer />
       </Background>
     </BrowserRouter>
   );
 }
 
-export default App
+export default App;

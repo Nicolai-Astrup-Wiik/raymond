@@ -1,30 +1,66 @@
-
-.SomeButtonContainer{
+/* Container for some buttons */
+.SomeButtonContainer {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
-	justify-content: space-between;
-	height: 80px;
+	justify-content: flex-end;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	height: auto;
 	width: fit-content;
+	padding: 10px;
 }
 
-
-.SomeButton{
+/* Default button styles */
+.SomeButton {
 	outline: none;
 	background: transparent;
 	border: none;
+	cursor: pointer;
+	transition: transform 0.3s ease, padding 0.3s ease; /* Smooth transitions for scale and padding */
+	padding: 0.5rem; /* Default padding */
+	font-size: 1rem; /* Default font size */
 }
 
-.SomeButton:hover{
+/* Hover state */
+.SomeButton:hover {
+	transform: scale(1.2); /* Increase the size by 20% on hover */
 	outline: none;
 	border: none;
-	cursor: pointer;
-	
 }
 
-.SomeButton:focus{
-	border:none;
-	outline:none;
+/* Focus state */
+.SomeButton:focus {
+	border: none;
+	outline: none;
 }
 
+/* Mobile Styles */
+@media (max-width: 768px) {
+	.SomeButtonContainer {
+		display: flex;
+		flex-direction: row; /* Arrange buttons horizontally */
+		align-items: center;
+		justify-content: center; /* Center buttons horizontally */
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		width: 100%; /* Full width to accommodate horizontal layout */
+		padding: 10px;
+		background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the container */
+		backdrop-filter: blur(10px); /* Apply blur effect */
+		border-radius: 10px; /* Optional: rounded corners */
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Optional: shadow for better separation */
+  }
 
+  .SomeButton {
+		padding: 0.3rem; /* Reduced padding for smaller buttons */
+		font-size: 0.875rem; /* Smaller font size for mobile */
+		margin: 0 5px; /* Space between buttons */
+  }
+
+  .SomeButton:hover {
+		transform: scale(1.1); /* Slightly smaller scale increase on hover for mobile */
+  }
+}
