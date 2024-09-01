@@ -44,6 +44,7 @@
 .spotify-button {
 	display: flex;
 	align-items: center; /* Center icon and text vertically */
+	width: fit-content;
 	margin-top: 15px;
 	padding: 10px 20px;
 	background-color: #1DB954; /* Spotify green */
