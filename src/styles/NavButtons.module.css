@@ -54,29 +54,29 @@
 /* Mobile Styles */
 @media (max-width: 768px) {
 	.main-button-container {
-		 overflow-x: scroll;
-		 scroll-snap-type: x mandatory;
-		 scroll-behavior: smooth;
-		 display: flex;
-		 gap: 10px;
-		 scrollbar-width: none; /* Hide scrollbar on Firefox */
-		 -ms-overflow-style: none; /* Hide scrollbar on IE and Edge */
+		overflow-x: scroll;
+		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
+		display: flex;
+		gap: 10px;
+		scrollbar-width: none; /* Hide scrollbar on Firefox */
+		-ms-overflow-style: none; /* Hide scrollbar on IE and Edge */
 	}
 
 	.main-button-container::-webkit-scrollbar {
-		 display: none; /* Hide scrollbar on Chrome, Safari, and Opera */
+		display: none; /* Hide scrollbar on Chrome, Safari, and Opera */
 	}
 
 	.main-button-container > button {
-		 scroll-snap-align: center;
-		 flex-shrink: 0;
+		scroll-snap-align: center;
+		flex-shrink: 0;
 	}
 
-	.nav-button{
+	.nav-button {
 		scroll-snap-align: center;
 	}
 
-	.nav-button:hover{
-
+	.nav-button-active {
+		border-bottom: none; /* Remove underline in carousel mode */
 	}
 }

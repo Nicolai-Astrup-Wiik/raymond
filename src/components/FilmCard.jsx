@@ -1,3 +1,4 @@
+// src/components/FilmCard.jsx
 import React, { useEffect, useState } from 'react';
 import { Card } from './Card';
 import raymondImage from '../assets/raymond-enoksen.jpg';
@@ -29,12 +30,13 @@ export const FilmCard = ({ title, filename, text, year, spotifyLink, onDelete, i
 					<p className={styles['card-text']}>{text}</p>
 					{spotifyLink && (
 						<a href={spotifyLink} target="_blank" rel="noopener noreferrer" className={styles['spotify-button']}>
-							Listen on Spotify
+							<i className="fab fa-spotify"></i> Listen on Spotify
 						</a>
 					)}
-					{/* Conditionally render delete button */}
 					{isAuthenticated && (
-						<button className={styles['delete-button']} onClick={onDelete}>Delete</button>
+						<button className={styles['delete-button']} onClick={onDelete}>
+							<i className="fas fa-trash"></i> Delete
+						</button>
 					)}
 				</div>
 			</div>

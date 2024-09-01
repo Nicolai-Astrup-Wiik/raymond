@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { Card } from './Card.jsx'
-import { FilterButtons } from './FilterButtons.jsx'
 import { FilmCard } from './FilmCard.jsx'
 import { ProjectsList } from './ProjectList.jsx'
 

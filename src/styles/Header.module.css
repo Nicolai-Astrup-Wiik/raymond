@@ -1,3 +1,36 @@
 h1{
 	border-bottom: 2px solid white;
 }
+/* Header.module.css */
+
+.header-container {
+	position: relative;
+ }
+ 
+ .header-overlay {
+	cursor: pointer;
+	/* Add other styles for the header overlay as needed */
+ }
+ 
+ .logout-button {
+	position: absolute;
+	top: -10px; /* Adjust as needed */
+	right: 10px; /* Adjust as needed */
+	background-color: #4d77ff; /* Red background */
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.3s ease;
+ }
+ 
+ .logout-button:hover {
+	background-color: #e60000; /* Darker red on hover */
+ }
+ 
+ .logout-button:focus {
+	outline: none;
+ }
+ 
