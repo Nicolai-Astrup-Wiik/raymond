@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getFirestore, collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
 import { FilmCard } from './FilmCard';
+import styles from '../styles/ProjectList.module.css'
 
 export const ProjectsList = ({ category, user }) => {
 	const [projects, setProjects] = useState([]);
@@ -41,11 +42,7 @@ export const ProjectsList = ({ category, user }) => {
 	};
 
 	return (
-		<div style={{
-			display: "flex",
-			flexDirection: "column",
-			gap: "10px"
-		}}>
+		<div className={styles['projectListContainer']} >
 			{projects.filter((project) => project.category === category).map((project) => (
 				<FilmCard
 					key={project.id}

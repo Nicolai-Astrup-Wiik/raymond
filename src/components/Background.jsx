@@ -1,11 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-// @ts-ignore
 import videoBG from '../assets/RE-bgd-v2.mp4';
 import styles from '../styles/Background.module.css';
 import { Header } from './Header';
 
 export const Background = ({ children, isAuthenticated }) => {
-
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -16,9 +14,18 @@ export const Background = ({ children, isAuthenticated }) => {
 
   return (
     <div className={styles['background-video-div']}>
-      <video src="https://mega.nz/embed/7JVTwbSC#XUDUNNwJgr1TmEVqR_RI6DBvlxNeglndiwyOFRbhYk8" className={styles['background-video']} autoPlay loop muted src={videoBG} />
+      <video
+        ref={videoRef}
+        className={styles['background-video']}
+        autoPlay
+        loop
+        muted
+        playsInline // Ensure it works on mobile
+      >
+        <source src={videoBG} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <div style={{ maxWidth: "100vw" }}>
-
         <Header isAuthenticated={isAuthenticated} />
         {children}
       </div>
