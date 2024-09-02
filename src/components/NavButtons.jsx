@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 export const NavButtons = () => {
 	const navigate = useNavigate();
-	const location = useLocation(); // Use location to track pathname
+	const location = useLocation();
 	const carouselRef = useRef(null);
 	const buttonRefs = useRef([]);
 	const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -12,6 +12,7 @@ export const NavButtons = () => {
 		const path = location.pathname;
 		return path.substring(1) || 'dreamscores';
 	});
+	const [isScrolling, setIsScrolling] = useState(false);
 
 	// Mapping between button display names and their IDs
 	const buttonMapping = {
@@ -27,11 +28,11 @@ export const NavButtons = () => {
 			setIsMobile(window.innerWidth <= 768);
 		};
 
-		checkScreenWidth(); // Initial check on load
-		window.addEventListener('resize', checkScreenWidth); // Add event listener on resize
+		checkScreenWidth();
+		window.addEventListener('resize', checkScreenWidth);
 
 		return () => {
-			window.removeEventListener('resize', checkScreenWidth); // Clean up event listener on unmount
+			window.removeEventListener('resize', checkScreenWidth);
 		};
 	}, []);
 
@@ -42,18 +43,23 @@ export const NavButtons = () => {
 		if (isMobile) {
 			const observer = new IntersectionObserver(
 				(entries) => {
+					let mostVisible = null;
+					let maxIntersectionRatio = 0;
+
 					entries.forEach(entry => {
-						if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-							// Ensure navigation only if the button is not already active
-							if (entry.target.id !== activeButton) {
-								handleNavigation(entry.target.id);
-							}
+						if (entry.isIntersecting && entry.intersectionRatio > maxIntersectionRatio) {
+							maxIntersectionRatio = entry.intersectionRatio;
+							mostVisible = entry.target;
 						}
 					});
+
+					if (mostVisible && mostVisible.id !== activeButton) {
+						handleNavigation(mostVisible.id);
+					}
 				},
 				{
 					root: carouselRef.current,
-					threshold: 0.5
+					threshold: [0.5]
 				}
 			);
 
@@ -70,22 +76,45 @@ export const NavButtons = () => {
 	}, [isMobile, location.pathname, activeButton]);
 
 	const handleNavigation = (buttonId) => {
-		setActiveButton(buttonId); // Update active button
+		setActiveButton(buttonId);
 		navigate(`/${buttonId}`);
 	};
 
 	const handleClick = (buttonId) => {
-		handleNavigation(buttonId);
+		if (!isScrolling) {
+			handleNavigation(buttonId);
+		}
 	};
 
-	// Determine the active class based on the activeButton state
+	useEffect(() => {
+		let scrollTimeout;
+
+		const handleScroll = () => {
+			setIsScrolling(true);
+			clearTimeout(scrollTimeout);
+			scrollTimeout = setTimeout(() => setIsScrolling(false), 300);
+		};
+
+		const carousel = carouselRef.current;
+
+		if (carousel) {
+			carousel.addEventListener('scroll', handleScroll);
+		}
+
+		return () => {
+			if (carousel) {
+				carousel.removeEventListener('scroll', handleScroll);
+			}
+		};
+	}, []);
+
 	const getButtonClass = (buttonId) => {
 		return buttonId === activeButton ? styles['nav-button-active'] : styles['nav-button'];
 	};
 
 	return (
 		<div className={styles['carousel-container']}>
-			<div className={`${styles['main-button-container']} ${isMobile ? styles['carousel'] : ''}`} ref={carouselRef}>
+			<div className={`${styles['main-button-container']} ${isMobile ? styles['carousel-active'] : ''}`} ref={carouselRef}>
 				{Object.entries(buttonMapping).map(([label, id]) => (
 					<button
 						key={id}
@@ -93,17 +122,18 @@ export const NavButtons = () => {
 						ref={el => {
 							if (el) {
 								buttonRefs.current.push(el);
-								// Ensure that each button is only added once
 								buttonRefs.current = Array.from(new Set(buttonRefs.current));
 							}
 						}}
 						className={getButtonClass(id)}
 						onClick={() => handleClick(id)}
+						disabled={isScrolling}
 					>
-						{label} {/* Display label with spaces */}
+						{label}
 					</button>
 				))}
 			</div>
 		</div>
 	);
 };
+
