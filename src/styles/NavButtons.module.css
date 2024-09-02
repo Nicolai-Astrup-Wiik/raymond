@@ -1,13 +1,16 @@
+/* NavButtons.module.css */
+
+/* Desktop Styles */
 .main-button-container {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 	height: 80px;
-	/*padding: 0px 10px*/
+	/* padding: 0px 10px; */
 }
 
-.nav-button{
+.nav-button {
 	cursor: pointer;
 }
 
@@ -19,17 +22,13 @@
 	border: none;
 	width: 20rem;
 	transition: font-size 0.5s ease-in-out;
-	border-radius: 0px;
+	border-radius: 0;
 	white-space: nowrap;
-
 }
 
 .nav-button-active {
 	font-size: x-large;
 	font-style: italic;
-	border-bottom: 1px solid white;
-	
-
 }
 
 .nav-button:hover,
@@ -47,36 +46,57 @@
 	border-bottom: 1px solid white;
 }
 
-/* NavButtons.module.css */
-
-/* Existing desktop styles remain unchanged */
-
 /* Mobile Styles */
 @media (max-width: 768px) {
 	.main-button-container {
-		overflow-x: scroll;
-		scroll-snap-type: x mandatory;
-		scroll-behavior: smooth;
-		display: flex;
-		gap: 10px;
-		scrollbar-width: none; /* Hide scrollbar on Firefox */
-		-ms-overflow-style: none; /* Hide scrollbar on IE and Edge */
+		
+		 padding-right: 50vw; /* Large right padding to push buttons out of view */
+		 overflow-x: auto;
+		 scroll-snap-type: x mandatory;
+		 display: flex;
+		 gap: 10px; /* Space between buttons */
+		 scrollbar-width: none; /* Hide scrollbar on Firefox */
+		 -ms-overflow-style: none; /* Hide scrollbar on IE and Edge */
+		 box-sizing: border-box; /* Include padding in width calculations */
 	}
 
 	.main-button-container::-webkit-scrollbar {
-		display: none; /* Hide scrollbar on Chrome, Safari, and Opera */
+		 display: none; /* Hide scrollbar on Chrome, Safari, and Opera */
 	}
 
 	.main-button-container > button {
-		scroll-snap-align: center;
-		flex-shrink: 0;
+		 scroll-snap-align: center;
+		 flex-shrink: 0;
+		 margin: 0 50vw; /* Large margin to push buttons out of view */
+		 transition: opacity 0.3s ease; /* Smooth transition for opacity */
 	}
 
-	.nav-button {
-		scroll-snap-align: center;
+	.carousel-active .nav-button {
+		 opacity: 0.5; /* Dim non-active buttons */
 	}
 
-	.nav-button-active {
-		border-bottom: none; /* Remove underline in carousel mode */
+	.carousel-active .nav-button-active {
+		 opacity: 1; /* Ensure active button is fully visible */
+	}
+
+	/* Ensure the border-bottom is removed for inactive buttons in carousel mode */
+	.carousel-active .nav-button-active {
+		 border-bottom: none;
+		 font-style: normal;
+	}
+
+	/* Disable button clicks in carousel mode */
+	.carousel-active .nav-button-disabled {
+		 cursor: not-allowed;
+		 opacity: 0.5;
+		 pointer-events: none;
+		 border-bottom: none;
+	}
+
+	.nav-button:focus,
+	.nav-button-active:focus {
+		 background: transparent;
+		 outline: none;
+		 border-bottom: none;
 	}
 }
