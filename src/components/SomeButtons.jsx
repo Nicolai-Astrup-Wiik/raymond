@@ -78,6 +78,94 @@ export const SomeButtons = () => {
 					</svg>
 				</button>
 			</a>
+			<a href="https://www.linkedin.com/in/raymond-enoksen-bb29623/?originalSubdomain=no" target='_blank' rel='noopener noreferrer'>
+				<button className={styles.SomeButton}>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="50px"
+						height="50px"
+						viewBox="0 0 256 256"
+						xmlSpace="preserve"
+					>
+						<defs />
+						<g
+							style={{
+								stroke: 'none',
+								strokeWidth: 0,
+								strokeDasharray: 'none',
+								strokeLinecap: 'butt',
+								strokeLinejoin: 'miter',
+								strokeMiterlimit: 10,
+								fill: 'none',
+								fillRule: 'nonzero',
+								opacity: 1
+							}}
+							transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+						>
+							<path
+								d="M 0 6.447 C 0 2.887 2.978 0 6.651 0 h 76.698 C 87.022 0 90 2.887 90 6.447 v 77.106 C 90 87.114 87.022 90 83.349 90 H 6.651 C 2.978 90 0 87.114 0 83.553 V 6.447 z"
+								style={{
+									stroke: 'none',
+									strokeWidth: 1,
+									strokeDasharray: 'none',
+									strokeLinecap: 'butt',
+									strokeLinejoin: 'miter',
+									strokeMiterlimit: 10,
+									fill: 'rgb(0,102,153)',
+									fillRule: 'nonzero',
+									opacity: 1
+								}}
+								strokeLinecap="round"
+							/>
+							<path
+								d="M 20.485 29.151 c 4.74 0 7.691 -3.121 7.691 -7.021 c -0.088 -3.988 -2.95 -7.022 -7.601 -7.022 c -4.65 0 -7.69 3.034 -7.69 7.022 c 0 3.9 2.95 7.021 7.512 7.021 H 20.485 L 20.485 29.151 z"
+								style={{
+									stroke: 'none',
+									strokeWidth: 1,
+									strokeDasharray: 'none',
+									strokeLinecap: 'butt',
+									strokeLinejoin: 'miter',
+									strokeMiterlimit: 10,
+									fill: 'rgb(255,255,255)',
+									fillRule: 'nonzero',
+									opacity: 1
+								}}
+								strokeLinecap="round"
+							/>
+							<path
+								d="M 27.282 75.339 v -40.64 H 13.688 v 40.64 H 27.282 z"
+								style={{
+									stroke: 'none',
+									strokeWidth: 1,
+									strokeDasharray: 'none',
+									strokeLinecap: 'butt',
+									strokeLinejoin: 'miter',
+									strokeMiterlimit: 10,
+									fill: 'rgb(255,255,255)',
+									fillRule: 'nonzero',
+									opacity: 1
+								}}
+								strokeLinecap="round"
+							/>
+							<path
+								d="M 34.804 75.339 h 13.594 V 52.644 c 0 -1.215 0.088 -2.428 0.447 -3.296 c 0.983 -2.427 3.219 -4.94 6.975 -4.94 c 4.919 0 6.887 3.727 6.887 9.19 v 21.741 h 13.592 V 52.037 c 0 -12.483 -6.706 -18.291 -15.65 -18.291 c -7.333 0 -10.553 4.073 -12.342 6.847 h 0.091 v -5.894 H 34.804 C 34.982 38.513 34.804 75.339 34.804 75.339 L 34.804 75.339 z"
+								style={{
+									stroke: 'none',
+									strokeWidth: 1,
+									strokeDasharray: 'none',
+									strokeLinecap: 'butt',
+									strokeLinejoin: 'miter',
+									strokeMiterlimit: 10,
+									fill: 'rgb(255,255,255)',
+									fillRule: 'nonzero',
+									opacity: 1
+								}}
+								strokeLinecap="round"
+							/>
+						</g>
+					</svg>
+				</button>
+			</a>
 			<a href="https://www.imdb.com/name/nm1780369/" target='_blank' rel='noopener noreferrer'>
 				<button className={styles.SomeButton}>
 					<svg height="50" version="1.1" viewBox="0 0 512 512" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -92,6 +180,27 @@ export const SomeButtons = () => {
 							<path d="M330.544,236.8c0-8.317,0.31-17.25-1.438-25.055c-4.414-23.102-32.24-21.458-50.311-21.458h-25.261v131.222C341.942,321.612,330.544,327.669,330.544,236.8z M287.522,298.713v-85.94c12.219,0,10.576,6.47,10.576,16.428v50.622C298.099,289.781,300.049,299.022,287.522,298.713z" style={{ fill: '#273238' }} />
 							<path d="M395.949,223.656c-9.137,0-15.298,2.773-21.457,9.447v-42.816h-32.55v131.222h30.597l1.953-8.317c5.852,6.982,12.218,10.063,21.457,10.063c20.331,0,22.795-15.607,22.795-31.729v-36.963C418.744,236.8,417.923,223.656,395.949,223.656z M379.522,304.362c-1.642,0-3.081-0.823-3.902-2.465c-2.26-5.237-1.128-45.281-1.128-45.897c0-3.901-1.132-13.04,5.03-13.04c7.496,0,6.364,7.496,6.364,13.04v33.574C385.887,295.12,387.53,304.362,379.522,304.362z" style={{ fill: '#273238' }} />
 						</g>
+					</svg>
+				</button>
+			</a>
+			<a href="mailto:post@dreamscores.com" target='_blank' rel='noopener noreferrer'>
+				<button className={styles.SomeButton}>
+					<svg xmlns="http://www.w3.org/2000/svg" width="50px" viewBox="0 0 512 512" xmlSpace="preserve">
+						<path
+							fill="#00c3ff"
+							d="M475.919 448.43H36.081c-15.182 0-27.49-12.307-27.49-27.49V91.06c0-15.182 12.307-27.49 27.49-27.49H475.92c15.182 0 27.49 12.307 27.49 27.49v329.88c-.001 15.182-12.308 27.49-27.491 27.49z"
+						/>
+						<path
+							fill="#00aaf0"
+							d="M36.081 448.43H475.92c15.182 0 27.49-12.307 27.49-27.49V91.73L287.097 275.997c-17.921 15.266-44.273 15.266-62.194 0L8.591 91.73v329.21c0 15.182 12.307 27.49 27.49 27.49z"
+						/>
+						<path
+							fill="#0096dc"
+							d="M207.077 296.924A75.513 75.513 0 0 0 256 314.937a75.514 75.514 0 0 0 48.924-18.013l198.485-178.493V91.73L287.097 275.997A47.858 47.858 0 0 1 256 287.447a47.853 47.853 0 0 1-31.096-11.45L8.591 91.73v329.21c0 15.182 12.307 27.49 27.49 27.49H475.92c15.182 0 27.49-12.307 27.49-27.49v-9.163H146.04c-50.608 0-91.633-41.025-91.633-91.633v-140.87c0-4.885 5.722-7.528 9.441-4.359l143.229 122.009z"
+						/>
+						<path
+							d="M475.919 54.98H36.081C16.186 54.98 0 71.166 0 91.06v329.88c0 19.895 16.186 36.081 36.081 36.081H475.92c19.895 0 36.081-16.186 36.081-36.081V91.06c-.001-19.894-16.187-36.08-36.082-36.08zM36.081 72.161H475.92c9.169 0 16.827 6.566 18.537 15.241L280.14 269.968c-13.988 11.916-34.291 11.916-48.279 0L17.543 87.402c1.71-8.675 9.368-15.241 18.538-15.241zm439.838 367.678H36.081c-9.169 0-16.827-6.566-18.537-15.241L179.1 286.975a8.59 8.59 0 0 0-11.141-13.079L17.181 402.337V109.663l203.538 173.385c10.222 8.707 22.751 13.06 35.281 13.06 12.53 0 25.059-4.354 35.281-13.06l203.538-173.385v292.674L344.04 273.896c-3.609-3.077-9.033-2.644-12.11.969a8.59 8.59 0 0 0 .969 12.11l161.557 137.623c-1.709 8.675-9.367 15.241-18.537 15.241z"
+						/>
 					</svg>
 				</button>
 			</a>

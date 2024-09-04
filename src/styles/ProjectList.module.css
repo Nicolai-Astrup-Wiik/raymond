@@ -1,7 +1,10 @@
-.projectListContainer{
-	height: 100%;
+/* src/styles/ProjectList.module.css */
+.projectListContainer {
+	max-width: 700px;
+	margin: 0 auto; /* Center the container horizontally */
 	display: flex;
-	flex-direction: column;
+	flex-direction: column; /* Stack cards vertically */
+	align-items: center; /* Center align cards horizontally */
 	gap: 10px;
 	margin-bottom: 5rem;
 }

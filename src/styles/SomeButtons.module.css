@@ -37,6 +37,7 @@
 }
 
 /* Mobile Styles */
+/* Mobile Styles */
 @media (max-width: 768px) {
 	.SomeButtonContainer {
 		display: flex;
@@ -44,23 +45,33 @@
 		align-items: center;
 		justify-content: center; /* Center buttons horizontally */
 		position: fixed;
-		bottom: 0;
-		right: 0;
-		width: 100vw; /* Full width to accommodate horizontal layout */
-		padding: 10px;
+		padding: 0;
+		padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
+		/*gap: 2rem;*/
+		width: 100%; /* Full width to accommodate horizontal layout */
 		background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the container */
 		backdrop-filter: blur(10px); /* Apply blur effect */
-	
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Optional: shadow for better separation */
-  }
+	}
 
-  .SomeButton {
-		padding: 0.3rem; /* Reduced padding for smaller buttons */
-		font-size: 0.875rem; /* Smaller font size for mobile */
-		margin: 0 5px; /* Space between buttons */
-  }
+	.SomeButton {
+		width: 30px; /* Set the width */
+		height: 30px; /* Set the height */
+		padding: 0; /* Remove padding to ensure the button is exactly 30x30 */
+		font-size: 0.75rem; /* Smaller font size */
+		margin: 0 1rem; /* Space between buttons */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 
-  .SomeButton:hover {
+	.SomeButton svg {
+		width: 100%; /* Scale SVG to fit the button */
+		height: 100%; /* Scale SVG to fit the button */
+	}
+
+	.SomeButton:hover {
 		transform: scale(1.1); /* Slightly smaller scale increase on hover for mobile */
-  }
+	}
 }
