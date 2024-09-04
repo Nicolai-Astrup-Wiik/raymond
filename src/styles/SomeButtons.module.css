@@ -1,4 +1,8 @@
 /* Container for some buttons */
+
+.icon {
+	opacity: 0.6;
+ }
 .SomeButtonContainer {
 	display: flex;
 	flex-direction: column;
@@ -28,6 +32,9 @@
 	transform: scale(1.2); /* Increase the size by 20% on hover */
 	outline: none;
 	border: none;
+}
+.SomeButton:hover .icon{
+	opacity: 1;
 }
 
 /* Focus state */

@@ -10,7 +10,7 @@ export const SomeButtons = () => {
 				<button className={styles.SomeButton}>
 					{/*<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 				<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->*/}
-					<svg width="50px" height="50" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+					<svg className={styles.icon} width="50px" height="50" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
 						<title>Spotify-color</title>
 						<desc>Created with Sketch.</desc>
 						<defs>
@@ -29,7 +29,7 @@ export const SomeButtons = () => {
 			<a href="https://www.instagram.com/raymond_enoksen_composer/" target='_blank' rel='noopener noreferrer'>
 				<button className={styles.SomeButton}>
 					{/*<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->*/}
-					<svg width="50" height="50" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<svg className={styles.icon} width="50" height="50" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint0_radial_87_7153)" />
 						<rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint1_radial_87_7153)" />
 						<rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint2_radial_87_7153)" />
@@ -61,7 +61,7 @@ export const SomeButtons = () => {
 				<button className={styles.SomeButton}>
 					{/*<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 				<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->*/}
-					<svg width="50" height="50" viewBox="0 -7 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+					<svg className={styles.icon} width="50" height="50" viewBox="0 -7 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
 
 						<title>Youtube-color</title>
 						<desc>Created with Sketch.</desc>
@@ -80,7 +80,7 @@ export const SomeButtons = () => {
 			</a>
 			<a href="https://www.linkedin.com/in/raymond-enoksen-bb29623/?originalSubdomain=no" target='_blank' rel='noopener noreferrer'>
 				<button className={styles.SomeButton}>
-					<svg
+					<svg className={styles.icon}
 						xmlns="http://www.w3.org/2000/svg"
 						width="50px"
 						height="50px"
@@ -168,7 +168,7 @@ export const SomeButtons = () => {
 			</a>
 			<a href="https://www.imdb.com/name/nm1780369/" target='_blank' rel='noopener noreferrer'>
 				<button className={styles.SomeButton}>
-					<svg height="50" version="1.1" viewBox="0 0 512 512" width="50px" xmlns="http://www.w3.org/2000/svg">
+					<svg className={styles.icon} height="50" version="1.1" viewBox="0 0 512 512" width="50px" xmlns="http://www.w3.org/2000/svg">
 						<g id="_x31_71-imdb">
 							<g>
 								<g>
@@ -185,7 +185,7 @@ export const SomeButtons = () => {
 			</a>
 			<a href="mailto:post@dreamscores.com" target='_blank' rel='noopener noreferrer'>
 				<button className={styles.SomeButton}>
-					<svg xmlns="http://www.w3.org/2000/svg" width="50px" viewBox="0 0 512 512" xmlSpace="preserve">
+					<svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" width="50px" viewBox="0 0 512 512" xmlSpace="preserve">
 						<path
 							fill="#00c3ff"
 							d="M475.919 448.43H36.081c-15.182 0-27.49-12.307-27.49-27.49V91.06c0-15.182 12.307-27.49 27.49-27.49H475.92c15.182 0 27.49 12.307 27.49 27.49v329.88c-.001 15.182-12.308 27.49-27.491 27.49z"

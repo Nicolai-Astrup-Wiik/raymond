@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from './Card';
-import raymondImage from '../assets/raymond-enoksen.jpg';
+import gears from '../assets/gears-spinner.svg';
 import styles from '../styles/FilmCard.module.css';
 import { getDownloadURL, ref } from 'firebase/storage';
 import { storage } from '../firebase/firebase';
@@ -58,7 +58,7 @@ export const FilmCard = ({ title, category, filename, text, year, spotifyLink, v
 						/>
 					</div>
 				) : (
-					<img src={url ?? raymondImage} alt={title} className={styles['film-card-image']} />
+					<img src={url ?? gears} alt={title} className={styles['film-card-image']} />
 				)}
 				<div className={styles['card-content']}>
 					<h2 className={styles['card-title']}>
