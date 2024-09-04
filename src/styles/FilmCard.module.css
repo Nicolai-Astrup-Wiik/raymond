@@ -1,6 +1,7 @@
+/* src/styles/FilmCard.module.css */
 .film-card {
     width: 100%;
-    min-width: 300px;
+    max-width: 700px; /* Match max-width of BioCard */
     margin: 0 auto; /* Center the card horizontally */
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
@@ -8,8 +9,10 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Example box shadow */
     backdrop-filter: blur(5px); /* Blur the background */
     position: relative; /* Ensure the delete button is positioned relative to the card */
+    box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
+/* Flexbox adjustments for card content */
 .film-card-content {
     display: flex;
     align-items: center;
@@ -40,35 +43,33 @@
 
 /* Spotify Button Styling */
 .spotify-button {
-	display: flex;
-	align-items: center; /* Center icon and text vertically */
-	width: fit-content;
-	margin-top: 15px;
-	padding: 10px 20px;
-	background-color: #1DB954 0,2; /* Spotify green */
-	color: #1DB954;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-	font-size: 1rem;
-	text-transform: uppercase;
-	transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth background color and transform transition */
+    display: flex;
+    align-items: center; /* Center icon and text vertically */
+    width: fit-content;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #1DB954; /* Spotify green */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth background color and transform transition */
 }
 
 .spotify-button:hover {
-	color: #1aa34a; /* Darker green on hover */
-	transform: scale(1.05); /* Slightly scale up the button on hover */
+    background-color: #1aa34a; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly scale up the button on hover */
 }
 
 .spotify-button:focus {
-	outline: none;
-
+    outline: none;
 }
 
 .spotify-button i {
-	margin-right: 5px; /* Space between the icon and text */
-	font-size: 1rem; /* Slightly larger icon */
-	color: #1DB954;
+    margin-right: 5px; /* Space between the icon and text */
+    font-size: 1rem; /* Slightly larger icon */
 }
 
 /* Delete Button Styling */
@@ -90,76 +91,70 @@
 }
 
 /* Media Queries for Responsive Design */
-
-/* Media Queries for Responsive Design */
-
-/* For tablets and small desktops */
 @media (max-width: 1024px) {
-	.film-card {
-		 width: 80%; /* Adjust width for medium screens */
-		 padding: 20px; /* Ensure padding is consistent */
-	}
+    .film-card {
+        width: 80%; /* Adjust width for medium screens */
+        padding: 20px; /* Ensure padding is consistent */
+    }
 
-	.film-card-image {
-		 width: 150px; /* Adjust image width for medium screens */
-	}
+    .film-card-image {
+        width: 150px; /* Adjust image width for medium screens */
+    }
 
-	.card-title {
-		 font-size: 1.375rem; /* Slightly smaller font size */
-	}
+    .card-title {
+        font-size: 1.375rem; /* Slightly smaller font size */
+    }
 
-	.card-text {
-		 font-size: 0.9rem; /* Adjust font size */
-	}
+    .card-text {
+        font-size: 0.9rem; /* Adjust font size */
+    }
 
-	.spotify-button {
-		 width: auto; /* Auto width to fit content */
-		 max-width: 200px; /* Ensure button does not exceed this width */
-		 padding: 10px 18px;
-		 font-size: 0.875rem;
-		 margin: 0 auto; /* Center the button horizontally */
-		 display: block; /* Ensure button is treated as a block element for centering */
-	}
+    .spotify-button {
+        width: auto; /* Auto width to fit content */
+        max-width: 200px; /* Ensure button does not exceed this width */
+        padding: 10px 18px;
+        font-size: 0.875rem;
+        margin: 0 auto; /* Center the button horizontally */
+        display: block; /* Ensure button is treated as a block element for centering */
+    }
 }
 
-/* For smaller devices (tablets and phones) */
 @media (max-width: 768px) {
-	.film-card {
-		 width: 90%; /* Full width on smaller screens */
-		 padding: 10px; /* Reduce padding */
-	
-	}
+    .film-card {
+        width: 90%; /* Full width on smaller screens */
+        padding: 10px; /* Reduce padding */
+    }
 
-	.film-card-content {
-		 flex-direction: column; /* Stack image and content vertically */
-		 align-items: center;
-	}
+    .film-card-content {
+        flex-direction: column; /* Stack image and content vertically */
+        align-items: center;
+    }
 
-	.film-card-image {
-		 width: 100%; /* Full width of the container */
-		 height: auto; /* Maintain aspect ratio */
-		 margin-bottom: 10px; /* Add space below the image */
-		 margin-right: 0px;
-	}
+    .film-card-image {
+        width: 100%; /* Full width of the container */
+        height: auto; /* Maintain aspect ratio */
+        margin-bottom: 10px; /* Add space below the image */
+        margin-right: 0px;
+    }
 
-	.card-title {
-		 font-size: 1.25rem; /* Adjust font size for smaller screens */
-	}
+    .card-title {
+        font-size: 1.25rem; /* Adjust font size for smaller screens */
+    }
 
-	.card-text {
-		 font-size: 0.875rem; /* Adjust font size for smaller screens */
-	}
+    .card-text {
+        font-size: 0.875rem; /* Adjust font size for smaller screens */
+    }
 
-	.spotify-button {
-		 width: 100%; /* Full width button on smaller screens */
-		 padding: 12px;
-		 font-size: 0.875rem;
-		 max-width: none; /* Remove max-width to prevent overflow */
-		 box-sizing: border-box; /* Include padding in width calculations */
-	}
+    .spotify-button {
+        width: 100%; /* Full width button on smaller screens */
+        padding: 12px;
+        font-size: 0.875rem;
+        max-width: none; /* Remove max-width to prevent overflow */
+        box-sizing: border-box; /* Include padding in width calculations */
+    }
 
-	.delete-button {
-		 position: static; /* Remove absolute positioning */
-		 margin-top: 10px; /* Space at the top */
-	}
+    .delete-button {
+        position: static; /* Remove absolute positioning */
+        margin-top: 10px; /* Space at the top */
+    }
 }
