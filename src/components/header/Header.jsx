@@ -11,6 +11,10 @@ export const Header = ({ isAuthenticated }) => {
     navigate('/');
   };
 
+  const goToAdmin = () => {
+    navigate('/admin');
+  };
+
   const handleLogout = async () => {
     try {
       await signOut(auth);
@@ -26,9 +30,14 @@ export const Header = ({ isAuthenticated }) => {
         <h1>Raymond Enoksen</h1>
       </div>
       {isAuthenticated && (
-        <button className={styles['logout-button']} onClick={handleLogout}>
-          Logout
-        </button>
+        <div className={styles['button-container']}>
+          <button className={styles['logout-button']} onClick={goToAdmin}>
+            Add Film
+          </button>
+          <button className={styles['logout-button']} onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
       )}
     </div>
   );

@@ -11,11 +11,17 @@ h1{
 	cursor: pointer;
 	/* Add other styles for the header overlay as needed */
  }
- 
- .logout-button {
+ .button-container{
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
 	position: absolute;
 	top: -10px; /* Adjust as needed */
 	right: 10px; /* Adjust as needed */
+ }
+ 
+ .logout-button {
+
 	background-color: #4d77ff; /* Red background */
 	color: white;
 	border: none;
