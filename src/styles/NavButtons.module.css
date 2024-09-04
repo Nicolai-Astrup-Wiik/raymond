@@ -79,4 +79,10 @@
 	.nav-button-active {
 		border-bottom: none; /* Remove underline in carousel mode */
 	}
+	.nav-button:focus,
+.nav-button-active:focus {
+	background: transparent;
+	outline: none;
+	border-bottom: none;
+}
 }

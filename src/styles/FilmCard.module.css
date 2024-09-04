@@ -45,13 +45,8 @@
 	width: fit-content;
 	margin-top: 15px;
 	padding: 10px 20px;
-<<<<<<< Updated upstream
-	background-color: #1DB954; /* Spotify green */
-	color: white;
-=======
 	background-color: #1DB954 0,2; /* Spotify green */
 	color: #1DB954;
->>>>>>> Stashed changes
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
@@ -61,24 +56,12 @@
 }
 
 .spotify-button:hover {
-<<<<<<< Updated upstream
-	background-color: #1aa34a; /* Darker green on hover */
-=======
 	color: #1aa34a; /* Darker green on hover */
->>>>>>> Stashed changes
 	transform: scale(1.05); /* Slightly scale up the button on hover */
 }
 
 .spotify-button:focus {
 	outline: none;
-<<<<<<< Updated upstream
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a subtle focus effect */
-}
-
-.spotify-button i {
-	margin-right: 8px; /* Space between the icon and text */
-	font-size: 1.2rem; /* Slightly larger icon */
-=======
 
 }
 
@@ -86,7 +69,6 @@
 	margin-right: 5px; /* Space between the icon and text */
 	font-size: 1rem; /* Slightly larger icon */
 	color: #1DB954;
->>>>>>> Stashed changes
 }
 
 
@@ -116,26 +98,6 @@
 /* For tablets and small desktops */
 @media (max-width: 1024px) {
 	.film-card {
-<<<<<<< Updated upstream
-		width: 80%; /* Adjust width for medium screens */
-	}
-
-	.film-card-image {
-		width: 150px; /* Adjust image width for medium screens */
-	}
-
-	.card-title {
-		font-size: 1.375rem; /* Slightly smaller font size */
-	}
-
-	.card-text {
-		font-size: 0.9rem; /* Adjust font size */
-	}
-
-	.spotify-button {
-		padding: 10px 18px;
-		font-size: 0.875rem;
-=======
 		 width: 80%; /* Adjust width for medium screens */
 		 padding: 20px; /* Ensure padding is consistent */
 	}
@@ -159,47 +121,12 @@
 		 font-size: 0.875rem;
 		 margin: 0 auto; /* Center the button horizontally */
 		 display: block; /* Ensure button is treated as a block element for centering */
->>>>>>> Stashed changes
 	}
 }
 
 /* For smaller devices (tablets and phones) */
 @media (max-width: 768px) {
 	.film-card {
-<<<<<<< Updated upstream
-		width: 90%; /* Full width on smaller screens */
-		padding: 10px; /* Reduce padding */
-	}
-
-	.film-card-content {
-		flex-direction: column; /* Stack image and content vertically */
-		align-items: center;
-	}
-
-	.film-card-image {
-		width: 100%; /* Full width of the container */
-		margin-right: 0; /* Remove margin */
-		margin-bottom: 10px; /* Add space below the image */
-	}
-
-	.card-title {
-		font-size: 1.25rem; /* Adjust font size for smaller screens */
-	}
-
-	.card-text {
-		font-size: 0.875rem; /* Adjust font size for smaller screens */
-	}
-
-	.spotify-button {
-		width: 100%; /* Full width button on smaller screens */
-		padding: 12px;
-		font-size: 0.875rem;
-	}
-
-	.delete-button {
-		position: static; /* Remove absolute positioning */
-		margin-top: 10px; /* Space at the top */
-=======
 		 width: 90%; /* Full width on smaller screens */
 		 padding: 10px; /* Reduce padding */
 	
@@ -236,6 +163,5 @@
 	.delete-button {
 		 position: static; /* Remove absolute positioning */
 		 margin-top: 10px; /* Space at the top */
->>>>>>> Stashed changes
 	}
 }
