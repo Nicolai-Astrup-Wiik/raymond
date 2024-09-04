@@ -78,25 +78,10 @@
 	.carousel-active .nav-button-active {
 		 opacity: 1; /* Ensure active button is fully visible */
 	}
-
-	/* Ensure the border-bottom is removed for inactive buttons in carousel mode */
-	.carousel-active .nav-button-active {
-		 border-bottom: none;
-		 font-style: normal;
-	}
-
-	/* Disable button clicks in carousel mode */
-	.carousel-active .nav-button-disabled {
-		 cursor: not-allowed;
-		 opacity: 0.5;
-		 pointer-events: none;
-		 border-bottom: none;
-	}
-
 	.nav-button:focus,
-	.nav-button-active:focus {
-		 background: transparent;
-		 outline: none;
-		 border-bottom: none;
-	}
+.nav-button-active:focus {
+	background: transparent;
+	outline: none;
+	border-bottom: none;
+}
 }

@@ -1,0 +1,7 @@
+.projectListContainer{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-bottom: 5rem;
+}

@@ -24,7 +24,7 @@ export const FilmCard = ({ title, filename, text, year, spotifyLink, onDelete, i
 	return (
 		<Card>
 			<div className={styles['film-card-content']}>
-				<img style={{ objectFit: "cover" }} src={url ?? raymondImage} alt={title} className={styles['film-card-image']} />
+				<img src={url ?? raymondImage} alt={title} className={styles['film-card-image']} />
 				<div className={styles['card-content']}>
 					<h2 className={styles['card-title']}>{title} - {extractedYear}</h2>
 					<p className={styles['card-text']}>{text}</p>
