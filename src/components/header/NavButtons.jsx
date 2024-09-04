@@ -67,6 +67,9 @@ export const NavButtons = () => {
 						}
 					});
 
+					console.log("Entries:", entries);
+					console.log("Most Visible:", mostVisible);
+
 					if (mostVisible && mostVisible.id !== activeButton) {
 						handleNavigation(mostVisible.id);
 					}
@@ -88,6 +91,7 @@ export const NavButtons = () => {
 			};
 		}
 	}, [isMobile, activeButton]);
+
 
 	useEffect(() => {
 		if (!isMobile) {
@@ -115,6 +119,7 @@ export const NavButtons = () => {
 
 
 	const handleClick = (buttonId) => {
+		console.log("Button Clicked:", buttonId);
 		if (!isScrolling) {
 			handleNavigation(buttonId);
 		}
