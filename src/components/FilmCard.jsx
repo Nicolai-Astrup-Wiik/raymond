@@ -5,7 +5,7 @@ import styles from '../styles/FilmCard.module.css';
 import { getDownloadURL, ref } from 'firebase/storage';
 import { storage } from '../firebase/firebase';
 
-export const FilmCard = ({ title, filename, text, year, spotifyLink, videoLink, onDelete, isAuthenticated }) => {
+export const FilmCard = ({ title, category, filename, text, year, spotifyLink, videoLink, onDelete, isAuthenticated }) => {
 	const [url, setUrl] = useState(undefined);
 
 	useEffect(() => {
@@ -42,6 +42,8 @@ export const FilmCard = ({ title, filename, text, year, spotifyLink, videoLink, 
 	const videoEmbedUrl = videoLink ? getVideoEmbedUrl(videoLink) : null;
 	console.log("Calculated Video Embed URL:", videoEmbedUrl);
 
+	console.log('Category:', category);
+
 	return (
 		<Card>
 			<div className={styles['film-card-content']}>
@@ -59,7 +61,11 @@ export const FilmCard = ({ title, filename, text, year, spotifyLink, videoLink, 
 					<img src={url ?? raymondImage} alt={title} className={styles['film-card-image']} />
 				)}
 				<div className={styles['card-content']}>
-					<h2 className={styles['card-title']}>{title} - {extractedYear}</h2>
+					<h2 className={styles['card-title']}>
+						{title}
+						{category !== 'dreamscores' && ` - ${extractedYear}`}
+					</h2>
+
 					<p className={styles['card-text']}>{text}</p>
 					{spotifyLink && (
 						<a href={spotifyLink} target="_blank" rel="noopener noreferrer" className={styles['spotify-button']}>

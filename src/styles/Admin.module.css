@@ -36,10 +36,12 @@
 
 .ButtonWrapper {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
+	align-items: center;
 }
 
 .AddForm button {
+	width: 100%;
 	padding: 15px;
 	background-color: #007bff;
 	color: #fff;
@@ -51,4 +53,27 @@
 
 .AddForm button:hover {
 	background-color: #0056b3;
+}
+
+.InputWrapper {
+	position: relative; /* Ensure the error message positioning does not affect layout */
+	margin-bottom: 1.5rem; /* Space between input fields and error messages */
+}
+
+.errorMessage {
+	color: red;
+	font-size: 0.875rem; /* Adjust font size as needed */
+	font-weight: bold;
+	position: absolute; /* Positioning for error message */
+	bottom: -2rem; /* Position error message below input field */
+	left: 0; /* Align error message to the left of the input field */
+	width: 100%; /* Make the error message span the full width of the input field */
+	margin-top: 0.5rem; /* Space above the error message */
+	box-sizing: border-box; /* Include padding and border in the element’s total width and height */
+}
+
+.successMessage {
+	color: green;
+	font-weight: bold;
+	margin-top: 10px;
 }

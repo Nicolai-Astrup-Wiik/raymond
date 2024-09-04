@@ -46,6 +46,7 @@ export const ProjectsList = ({ category, user }) => {
 			{projects.filter((project) => project.category === category).map((project) => (
 				<FilmCard
 					key={project.id}
+					category={project.category}
 					title={project.title}
 					text={project.description}
 					filename={project.filename}
