@@ -51,6 +51,7 @@ export const ProjectsList = ({ category, user }) => {
 					filename={project.filename}
 					year={project.year}
 					spotifyLink={project.spotifyLink}
+					videoLink={project.videoLink}
 					onDelete={() => handleDelete(project.id)}
 					isAuthenticated={!!user} // Pass the user state to FilmCard
 				/>

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import styles from '../styles/NavButtons.module.css';
+import styles from '../../styles/NavButtons.module.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export const NavButtons = () => {
@@ -10,12 +10,13 @@ export const NavButtons = () => {
 	const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 	const [activeButton, setActiveButton] = useState(() => {
 		const path = location.pathname;
-		return path.substring(1) || 'dreamscores';
+		return path.substring(1) || '/';
 	});
 	const [isScrolling, setIsScrolling] = useState(false);
+	const [observer, setObserver] = useState(null);
 
-	// Mapping between button display names and their IDs
 	const buttonMapping = {
+		'Home': '/',
 		'Dreamscores': 'dreamscores',
 		'Big Screen': 'bigScreen',
 		'Small Screen': 'smallScreen',
@@ -23,9 +24,17 @@ export const NavButtons = () => {
 		'Licensing': 'licensing'
 	};
 
+
 	useEffect(() => {
 		const checkScreenWidth = () => {
-			setIsMobile(window.innerWidth <= 768);
+			const isCurrentMobile = window.innerWidth <= 768;
+			setIsMobile(isCurrentMobile);
+
+			// If switching from mobile to desktop, handle re-initialization
+			if (!isCurrentMobile && observer) {
+				observer.disconnect();
+				setObserver(null);
+			}
 		};
 
 		checkScreenWidth();
@@ -33,15 +42,20 @@ export const NavButtons = () => {
 
 		return () => {
 			window.removeEventListener('resize', checkScreenWidth);
+			if (observer) {
+				observer.disconnect();
+			}
 		};
-	}, []);
+	}, [observer]);
 
 	useEffect(() => {
 		// Update active state based on the current path
-		setActiveButton(location.pathname.substring(1) || 'dreamscores');
+		setActiveButton(location.pathname.substring(1) || '/');
+	}, [location.pathname]);
 
+	useEffect(() => {
 		if (isMobile) {
-			const observer = new IntersectionObserver(
+			const newObserver = new IntersectionObserver(
 				(entries) => {
 					let mostVisible = null;
 					let maxIntersectionRatio = 0;
@@ -64,21 +78,41 @@ export const NavButtons = () => {
 			);
 
 			buttonRefs.current.forEach(button => {
-				if (button) observer.observe(button);
+				if (button) newObserver.observe(button);
 			});
 
+			setObserver(newObserver);
+
 			return () => {
-				buttonRefs.current.forEach(button => {
-					if (button) observer.unobserve(button);
-				});
+				newObserver.disconnect();
 			};
 		}
-	}, [isMobile, location.pathname, activeButton]);
+	}, [isMobile, activeButton]);
+
+	useEffect(() => {
+		if (!isMobile) {
+			// Center the active button on desktop view
+			const activeButtonElement = buttonRefs.current.find(button => button.id === activeButton);
+			if (activeButtonElement && carouselRef.current) {
+				carouselRef.current.scrollTo({
+					left: activeButtonElement.offsetLeft - (carouselRef.current.offsetWidth / 2) + (activeButtonElement.offsetWidth / 2),
+					behavior: 'smooth'
+				});
+			}
+		}
+	}, [isMobile, activeButton]);
 
 	const handleNavigation = (buttonId) => {
-		setActiveButton(buttonId);
-		navigate(`/${buttonId}`);
+		// Check if buttonId is '/' to handle the "Home" button separately
+		const path = buttonId === '/' ? '/' : `/${buttonId}`;
+
+		// Only navigate if the path is different from the current location
+		if (path !== location.pathname) {
+			setActiveButton(buttonId);
+			navigate(path);
+		}
 	};
+
 
 	const handleClick = (buttonId) => {
 		if (!isScrolling) {
@@ -116,24 +150,26 @@ export const NavButtons = () => {
 		<div className={styles['carousel-container']}>
 			<div className={`${styles['main-button-container']} ${isMobile ? styles['carousel-active'] : ''}`} ref={carouselRef}>
 				{Object.entries(buttonMapping).map(([label, id]) => (
-					<button
-						key={id}
-						id={id}
-						ref={el => {
-							if (el) {
-								buttonRefs.current.push(el);
-								buttonRefs.current = Array.from(new Set(buttonRefs.current));
-							}
-						}}
-						className={getButtonClass(id)}
-						onClick={() => handleClick(id)}
-						disabled={isScrolling}
-					>
-						{label}
-					</button>
+					(isMobile || id !== '/') ? (
+						<button
+							key={id}
+							id={id}
+							ref={el => {
+								if (el) {
+									buttonRefs.current.push(el);
+									buttonRefs.current = Array.from(new Set(buttonRefs.current)); // Remove duplicates
+								}
+							}}
+							className={getButtonClass(id)}
+							onClick={() => handleClick(id)}
+							disabled={isScrolling}
+						>
+							{label}
+						</button>
+					) : null
 				))}
+
 			</div>
 		</div>
 	);
 };
-

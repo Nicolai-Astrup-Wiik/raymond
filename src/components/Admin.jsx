@@ -12,7 +12,8 @@ export const Admin = ({ isAuthenticated }) => {
 		description: "",
 		year: "",
 		filename: "",
-		spotifyLink: ""
+		spotifyLink: "",
+		videoLink: ""
 	});
 	const navigate = useNavigate();
 	const auth = getAuth();
@@ -38,12 +39,37 @@ export const Admin = ({ isAuthenticated }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		await uploadImage(selectedFile, selectedFile.name);
-		await addProject({ ...projectValues, filename: selectedFile.name });
-		setProjectValues({ category: '', title: '', description: '', year: '', filename: '', spotifyLink: '' });
-		setSelectedFile(null);
-		e.target.reset();
+
+		try {
+			// Debugging output
+			console.log('Form values before submission:', projectValues);
+
+			// Validate video link if necessary
+			const videoLink = projectValues.videoLink.trim();
+			if (videoLink && !/^https?:\/\/(www\.)?(youtube\.com\/watch\?v=|vimeo\.com\/\d+)/.test(videoLink)) {
+				console.error('Invalid YouTube or Vimeo link');
+				return;
+			}
+
+			// Upload image if selected
+			if (selectedFile) {
+				await uploadImage(selectedFile, selectedFile.name);
+			}
+
+			// Add project
+			await addProject({ ...projectValues, filename: selectedFile ? selectedFile.name : '' });
+
+			// Clear form state and file selection
+			setProjectValues({ category: '', title: '', description: '', year: '', filename: '', spotifyLink: '', videoLink: "" });
+			setSelectedFile(null);
+			e.target.reset();
+
+			console.log('Project added successfully!');
+		} catch (error) {
+			console.error('Error adding project:', error);
+		}
 	};
+
 
 	return (
 		<div className={styles.container}>
@@ -69,6 +95,15 @@ export const Admin = ({ isAuthenticated }) => {
 				</div>
 				<div className={styles.InputWrapper}>
 					<input placeholder="Spotify link" name="spotifyLink" onChange={handleInputChange} value={projectValues.spotifyLink} type="text" />
+				</div>
+				<div className={styles.InputWrapper}>
+					<input
+						placeholder="YouTube/Vimeo link"
+						name="videoLink"
+						onChange={handleInputChange}
+						value={projectValues.videoLink}
+						type="text"
+					/>
 				</div>
 				<div className={styles.InputWrapper}>
 					<input name="img" type="file" onChange={handleFileChange} />

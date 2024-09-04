@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
-import styles from '../styles/Header.module.css';
+import styles from '../../styles/Header.module.css';
 
 export const Header = ({ isAuthenticated }) => {
   const navigate = useNavigate();

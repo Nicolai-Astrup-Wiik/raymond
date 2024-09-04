@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import videoBG from '../assets/RE-bgd-v2.mp4';
 import styles from '../styles/Background.module.css';
-import { Header } from './Header';
+import { Header } from './header/Header';
 
 export const Background = ({ children, isAuthenticated }) => {
   const videoRef = useRef(null);
