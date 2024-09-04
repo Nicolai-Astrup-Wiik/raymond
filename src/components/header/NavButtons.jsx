@@ -2,6 +2,10 @@ import React, { useRef, useEffect, useState } from 'react';
 import styles from '../../styles/NavButtons.module.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 
+const isSafari = () => {
+	return /safari/.test(navigator.userAgent.toLowerCase()) && !/chrome/.test(navigator.userAgent.toLowerCase());
+};
+
 export const NavButtons = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -75,7 +79,7 @@ export const NavButtons = () => {
 					}
 				},
 				{
-					root: carouselRef.current,
+					root: isSafari() ? null : carouselRef.current, // Use viewport if Safari
 					threshold: [0.5]
 				}
 			);

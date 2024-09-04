@@ -29,7 +29,9 @@
 .nav-button-active {
 	font-size: x-large;
 	font-style: italic;
+	border-bottom: 1px solid white;
 }
+
 
 .nav-button:hover,
 .nav-button-active:hover {
@@ -38,12 +40,16 @@
 	border: none;
 	font-style: italic;
 }
+.nav-button-active:hover {
+	border-bottom: 1px solid white;
+}
 
 .nav-button:focus,
 .nav-button-active:focus {
 	background: transparent;
 	outline: none;
-	border-bottom: 1px solid white;
+	
+
 }
 
 /* Mobile Styles */
@@ -79,9 +85,15 @@
 		 opacity: 1; /* Ensure active button is fully visible */
 	}
 	.nav-button:focus,
-.nav-button-active:focus {
-	background: transparent;
-	outline: none;
-	border-bottom: none;
-}
+	.nav-button-active:focus {
+		background: transparent;
+		outline: none;
+		border-bottom: none;
+	}
+	.nav-button-active:hover {
+		border-bottom: none;
+	}
+	.nav-button-active{
+		border-bottom: none;
+	}
 }
