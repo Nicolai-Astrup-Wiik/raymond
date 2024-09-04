@@ -46,11 +46,11 @@
 		position: fixed;
 		bottom: 0;
 		right: 0;
-		width: 100%; /* Full width to accommodate horizontal layout */
+		width: 100vw; /* Full width to accommodate horizontal layout */
 		padding: 10px;
 		background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the container */
 		backdrop-filter: blur(10px); /* Apply blur effect */
-		border-radius: 10px; /* Optional: rounded corners */
+	
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Optional: shadow for better separation */
   }
 

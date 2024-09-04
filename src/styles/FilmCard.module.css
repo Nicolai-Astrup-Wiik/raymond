@@ -1,42 +1,42 @@
 .film-card {
-	width: 50%;
-	min-width: 300px;
-	margin: 0 auto; /* Center the card horizontally */
-	padding: 20px;
-	background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
-	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Example box shadow */
-	backdrop-filter: blur(5px); /* Blur the background */
-	position: relative; /* Ensure the delete button is positioned relative to the card */
+    width: 50%;
+    min-width: 300px;
+    margin: 0 auto; /* Center the card horizontally */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Example box shadow */
+    backdrop-filter: blur(5px); /* Blur the background */
+    position: relative; /* Ensure the delete button is positioned relative to the card */
 }
 
 .film-card-content {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column; /* Stack content vertically */
 }
 
 .film-card-image {
-	width: 200px; /* Adjust image width as needed */
-	height: auto;
-	margin-right: 20px; /* Add spacing between image and content */
-	border-radius: 8px;
+    width: 200px; /* Adjust image width as needed */
+    height: auto;
+    margin-bottom: 20px; /* Add spacing between image and content */
+    border-radius: 8px;
 }
 
 .card-content {
-	flex: 1; /* Allow the content to take remaining space */
+    flex: 1; /* Allow the content to take remaining space */
+    text-align: center; /* Center the text content */
 }
 
 .card-title {
-	margin-bottom: 10px;
-	font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
 }
 
 .card-text {
-	font-size: 1rem;
-	line-height: 1.4;
+    font-size: 1rem;
+    line-height: 1.4;
 }
-
-/* FilmCard.module.css */
 
 /* Spotify Button Styling */
 .spotify-button {
@@ -71,24 +71,22 @@
 	color: #1DB954;
 }
 
-
 /* Delete Button Styling */
 .delete-button {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	background-color: #e74c3c;
-	color: white;
-	border: none;
-	border-radius: 4px;
-	padding: 10px;
-	cursor: pointer;
-	font-size: 0.875rem;
-	margin-top: 10px; /* Space between text and button */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 0.875rem;
 }
 
 .delete-button:hover {
-	background-color: #c0392b;
+    background-color: #c0392b;
 }
 
 /* Media Queries for Responsive Design */
