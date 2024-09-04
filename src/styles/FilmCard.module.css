@@ -1,25 +1,27 @@
 .film-card {
-    width: 100%;
-    min-width: 300px;
-    margin: 0 auto; /* Center the card horizontally */
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Example box shadow */
-    backdrop-filter: blur(5px); /* Blur the background */
-    position: relative; /* Ensure the delete button is positioned relative to the card */
+	width: 100%;
+	max-width: 700px; /* Match max-width of BioCard */
+	margin: 0 auto; /* Center the card horizontally */
+	padding: 20px;
+	background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Example box shadow */
+	backdrop-filter: blur(5px); /* Blur the background */
+	position: relative; /* Ensure the delete button is positioned relative to the card */
+	box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
 .film-card-content {
     display: flex;
     align-items: center;
-    flex-direction: column; /* Stack content vertically */
+    flex-direction: row; /* Stack content vertically */
 }
 
 .film-card-image {
     width: 200px; /* Adjust image width as needed */
     height: auto;
     margin-bottom: 20px; /* Add spacing between image and content */
+	 margin-right: 1rem;
     border-radius: 8px;
 }
 
@@ -40,9 +42,8 @@
 
 /* Spotify Button Styling */
 .spotify-button {
-	display: flex;
-	align-items: center; /* Center icon and text vertically */
-	width: fit-content;
+
+
 	margin-top: 15px;
 	padding: 10px 20px;
 	background-color: #1DB954 0,2; /* Spotify green */
@@ -53,6 +54,10 @@
 	font-size: 1rem;
 	text-transform: uppercase;
 	transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth background color and transform transition */
+}
+
+.video-container iframe{
+	border-radius: 8px;
 }
 
 .spotify-button:hover {
@@ -95,10 +100,9 @@
 
 /* For tablets and small desktops */
 @media (max-width: 1024px) {
-	.film-card {
-		 width: 80%; /* Adjust width for medium screens */
-		 padding: 20px; /* Ensure padding is consistent */
-	}
+  .film-card {
+        width: 80%; /* Adjust width for medium screens */
+    }
 
 	.film-card-image {
 		 width: 150px; /* Adjust image width for medium screens */
@@ -124,11 +128,10 @@
 
 /* For smaller devices (tablets and phones) */
 @media (max-width: 768px) {
-	.film-card {
-		 width: 90%; /* Full width on smaller screens */
-		 padding: 10px; /* Reduce padding */
-	
-	}
+	 .film-card {
+        width: 90%; /* Full width on smaller screens */
+        flex-direction: column; /* Stack image and content vertically on small screens */
+    }
 
 	.film-card-content {
 		 flex-direction: column; /* Stack image and content vertically */
