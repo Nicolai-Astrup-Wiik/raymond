@@ -9,7 +9,9 @@ export const Background = ({ children, isAuthenticated }) => {
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.muted = true;  // Force the video to be muted
+      videoRef.current.playsInline = true
     }
+
   }, []);
 
   return (
@@ -20,7 +22,7 @@ export const Background = ({ children, isAuthenticated }) => {
         autoPlay
         loop
         muted
-        playsInline // Ensure it works on mobile
+        playsInline
       >
         <source src={videoBG} type="video/mp4" />
         Your browser does not support the video tag.
