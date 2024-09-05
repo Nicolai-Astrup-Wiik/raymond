@@ -1,0 +1,25 @@
+:root {
+	--primary-color: #384049;
+	--primary-hover-color: #3d6793;
+	--error-color: red;
+	--success-color: green;
+	--background-color: rgba(255, 255, 255, 0.2);
+	--input-bg-color: rgba(67, 64, 64, 0.8);
+	--shadow-color: rgba(0, 0, 0, 0.3);
+	--hover-shadow-color: rgba(0, 0, 0, 0.2);
+	--hover-bg-color: rgba(255, 255, 255, 1);
+	--spotify-color: #1DB954;
+	--spotify-hover-color: #0df65f;
+	--delete-button-color: #e74c3c;
+	--delete-button-hover-color: #c0392b;
+	--input-padding: 15px;
+	--button-padding: 15px;
+	--container-margin-bottom: 3rem;
+	--small-spacing: 10px;
+	--medium-spacing: 20px;
+	--large-spacing: 30px;
+	--border-radius: 8px;
+	--blur-amount: 5px;
+	--font-color-white: #fff;
+	--font-color-darkgoldenrod: darkgoldenrod;
+ }

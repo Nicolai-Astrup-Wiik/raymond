@@ -1,42 +1,64 @@
-h1{
-	border-bottom: 2px solid white;
+@import './variables.module.css';
+
+h1 {
+  border-bottom: 2px solid var(--font-color-white);
 }
-/* Header.module.css */
 
 .header-container {
-	position: relative;
- }
- 
- .header-overlay {
-	cursor: pointer;
-	/* Add other styles for the header overlay as needed */
- }
- .button-container{
-	display: flex;
-	flex-direction: row;
-	gap: 2rem;
-	position: absolute;
-	top: -10px; /* Adjust as needed */
-	right: 10px; /* Adjust as needed */
- }
- 
- .logout-button {
+  position: relative;
+}
 
-	background-color: #4d77ff; /* Red background */
-	color: white;
-	border: none;
-	border-radius: 5px;
-	padding: 10px 20px;
-	cursor: pointer;
-	font-size: 16px;
-	transition: background-color 0.3s ease;
- }
- 
- .logout-button:hover {
-	background-color: #e60000; /* Darker red on hover */
- }
- 
- .logout-button:focus {
-	outline: none;
- }
- 
+.header-overlay {
+  cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  gap: var(--small-spacing);
+  position: absolute;
+  top: -1rem;
+  right: 10px;
+}
+
+.logout-button {
+  background-color: var(--primary-color);
+  color: var(--font-color-white);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.logout-button:focus {
+  outline: none;
+}
+
+
+@media (max-width: 768px){
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    gap: var(--small-spacing);
+    position: absolute;
+    top: 3rem;
+    right: 0.2rem;
+  }
+  .logout-button {
+    background-color: var(--primary-color);
+    color: var(--font-color-white);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+}

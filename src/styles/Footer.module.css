@@ -1,12 +1,13 @@
+@import './variables.module.css';
+
 .footer {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 1rem ;
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	box-sizing: border-box;
- }
- 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--small-spacing);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+}

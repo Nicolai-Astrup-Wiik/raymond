@@ -8,6 +8,7 @@ export function LoginForm({ onLoginSuccess }) {
 	const [loginValues, setLoginValues] = useState({ password: '', email: '' });
 	const [emailError, setEmailError] = useState('');
 	const [passwordError, setPasswordError] = useState('');
+	const [authError, setAuthError] = useState('');
 
 	const handleEmailInput = (e) => {
 		const email = e.target.value;
@@ -53,10 +54,15 @@ export function LoginForm({ onLoginSuccess }) {
 			return; // Stop form submission if validation fails
 		}
 
+		setAuthError('');
+
 		const result = await firebaseLogin(loginValues.email, loginValues.password);
 		if (result.type !== 'error') {
 			onLoginSuccess(result.user);
 			navigate('/admin');
+		} else {
+			// Display error message if login fails
+			setAuthError('Incorrect username or password.');
 		}
 	};
 
@@ -82,6 +88,7 @@ export function LoginForm({ onLoginSuccess }) {
 						onChange={handlePasswordInput}
 					/>
 					{passwordError && <p className={styles.Error}>{passwordError}</p>}
+					{authError && <p className={styles.Error}>{authError}</p>}
 				</div>
 				<button type='submit'>Log in</button>
 			</form>

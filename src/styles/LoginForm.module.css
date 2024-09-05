@@ -1,55 +1,57 @@
+@import './variables.module.css';
+
 .LoginFormContainer {
-	display: flex;
-	justify-content: center;
-	align-items: flex-start; /* Correct alignment */
-	height: auto;
-	padding: 20px; /* Optional: Adds padding around the form */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: auto;
+  padding: var(--medium-spacing);
 }
 
 .LoginForm {
-	display: flex;
-	flex-direction: column;
-	width: 400px; /* Adjust based on design needs */
-	padding: 20px;
-	background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-	backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: var(--medium-spacing);
+  background: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 10px var(--shadow-color);
+  backdrop-filter: blur(var(--blur-amount));
 }
 
 .InputWrapper {
-	position: relative;
-	margin-bottom: 30px; /* Ensure space for error message */
+  position: relative;
+  margin-bottom: var(--large-spacing);
 }
 
 .LoginForm input {
-	width: 100%;
-	padding: 15px;
-	border: 1px solid #ccc;
-	border-radius: 8px;
-	background-color: rgba(67, 64, 64, 0.8); /* Semi-transparent input field background */
-	box-sizing: border-box; /* Ensures padding does not affect width */
+  width: 100%;
+  padding: var(--input-padding);
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  background-color: var(--input-bg-color);
+  box-sizing: border-box;
 }
 
 .LoginForm button {
-	padding: 15px;
-	background-color: #007bff;
-	color: darkslategray;
-	border: none;
-	border-radius: 8px;
-	cursor: pointer;
-	font-size: 1rem;
+  padding: var(--button-padding);
+  background-color: var(--primary-color);
+  color: var(--font-color-darkgoldenrod);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .LoginForm button:hover {
-	background-color: #0056b3;
+  background-color: var(--primary-hover-color);
 }
 
 .Error {
-	color: red;
-	font-size: 0.875rem;
-	position: absolute; /* Position absolute to keep error message within the InputWrapper */
-	bottom: -30px; /* Position error message below input field */
-	left: 0;
-	width: 100%;
+  color: var(--error-color);
+  font-size: 0.875rem;
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  width: 100%;
 }
