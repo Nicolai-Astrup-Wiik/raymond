@@ -1,168 +1,167 @@
+@import './variables.module.css';
+
 .film-card {
-	width: 100%;
-	max-width: 700px; /* Match max-width of BioCard */
-	margin: 0 auto; /* Center the card horizontally */
-	padding: 20px;
-	background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
-	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Example box shadow */
-	backdrop-filter: blur(5px); /* Blur the background */
-	position: relative; /* Ensure the delete button is positioned relative to the card */
-	box-sizing: border-box; /* Ensure padding is included in the width */
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--medium-spacing);
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 10px var(--shadow-color);
+  backdrop-filter: blur(var(--blur-amount));
+  position: relative;
+  box-sizing: border-box;
 }
 
 .film-card-content {
-    display: flex;
-    align-items: center;
-    flex-direction: row; /* Stack content vertically */
+  display: flex;
+  align-items: center;
+  flex-direction: row;
 }
 
 .film-card-image {
-    width: 200px; /* Adjust image width as needed */
-    height: auto;
-    margin-bottom: 20px; /* Add spacing between image and content */
-	 margin-right: 1rem;
-    border-radius: 8px;
+  width: 200px;
+  height: auto;
+  margin-bottom: var(--medium-spacing);
+  margin-right: 1rem;
+  border-radius: var(--border-radius);
 }
 
 .card-content {
-    flex: 1; /* Allow the content to take remaining space */
-    text-align: center; /* Center the text content */
+  flex: 1;
+  text-align: center;
 }
 
 .card-title {
-    margin-bottom: 10px;
-    font-size: 1.5rem;
+  margin-bottom: var(--small-spacing);
+  font-size: 1.5rem;
 }
 
 .card-text {
-    font-size: 1rem;
-    line-height: 1.4;
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
 /* Spotify Button Styling */
 .spotify-button {
-
-
-	margin-top: 15px;
-	padding: 10px 20px;
-	background-color: #1DB954 0,2; /* Spotify green */
-	color: #1DB954;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-	font-size: 1rem;
-	text-transform: uppercase;
-	transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth background color and transform transition */
+  margin-top: var(--small-spacing);
+  padding: 10px 20px;
+  color: var(--spotify-color);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.video-container iframe{
-	border-radius: 8px;
+.video-container iframe {
+  border-radius: var(--border-radius);
 }
 
 .spotify-button:hover {
-	color: #1aa34a; /* Darker green on hover */
-	transform: scale(1.05); /* Slightly scale up the button on hover */
+  color: var(--spotify-hover-color);
+  transform: scale(1.05);
 }
+.spotify-button:hover i {
+	color: var(--spotify-hover-color);
+	transform: scale(1.05);
+ }
 
 .spotify-button:focus {
-	outline: none;
-
+  outline: none;
 }
 
 .spotify-button i {
-	margin-right: 5px; /* Space between the icon and text */
-	font-size: 1rem; /* Slightly larger icon */
-	color: #1DB954;
+  margin-right: 5px;
+  font-size: 1rem;
+  color: var(--spotify-color);
 }
 
 /* Delete Button Styling */
 .delete-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 0.875rem;
+  position: absolute;
+  top: var(--small-spacing);
+  right: var(--small-spacing);
+  background-color: var(--delete-button-color);
+  color: var(--font-color-white);
+  border: none;
+  border-radius: 4px;
+  padding: var(--small-spacing);
+  cursor: pointer;
+  font-size: 0.875rem;
 }
 
 .delete-button:hover {
-    background-color: #c0392b;
+  background-color: var(--delete-button-hover-color);
 }
-
-/* Media Queries for Responsive Design */
 
 /* Media Queries for Responsive Design */
 
 /* For tablets and small desktops */
 @media (max-width: 1024px) {
   .film-card {
-        width: 80%; /* Adjust width for medium screens */
-    }
+    width: 80%;
+  }
 
-	.film-card-image {
-		 width: 150px; /* Adjust image width for medium screens */
-	}
+  .film-card-image {
+    width: 150px;
+  }
 
-	.card-title {
-		 font-size: 1.375rem; /* Slightly smaller font size */
-	}
+  .card-title {
+    font-size: 1.375rem;
+  }
 
-	.card-text {
-		 font-size: 0.9rem; /* Adjust font size */
-	}
+  .card-text {
+    font-size: 0.9rem;
+  }
 
-	.spotify-button {
-		 width: auto; /* Auto width to fit content */
-		 max-width: 200px; /* Ensure button does not exceed this width */
-		 padding: 10px 18px;
-		 font-size: 0.875rem;
-		 margin: 0 auto; /* Center the button horizontally */
-		 display: block; /* Ensure button is treated as a block element for centering */
-	}
+  .spotify-button {
+    width: auto;
+    max-width: 200px;
+    padding: 10px 18px;
+    font-size: 0.875rem;
+    margin: 0 auto;
+    display: block;
+  }
 }
 
 /* For smaller devices (tablets and phones) */
 @media (max-width: 768px) {
-	 .film-card {
-        width: 90%; /* Full width on smaller screens */
-        flex-direction: column; /* Stack image and content vertically on small screens */
-    }
+  .film-card {
+    width: 90%;
+    flex-direction: column;
+  }
 
-	.film-card-content {
-		 flex-direction: column; /* Stack image and content vertically */
-		 align-items: center;
-	}
+  .film-card-content {
+    flex-direction: column;
+    align-items: center;
+  }
 
-	.film-card-image {
-		 width: 100%; /* Full width of the container */
-		 height: auto; /* Maintain aspect ratio */
-		 margin-bottom: 10px; /* Add space below the image */
-		 margin-right: 0px;
-	}
+  .film-card-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: var(--small-spacing);
+    margin-right: 0;
+  }
 
-	.card-title {
-		 font-size: 1.25rem; /* Adjust font size for smaller screens */
-	}
+  .card-title {
+    font-size: 1.25rem;
+  }
 
-	.card-text {
-		 font-size: 0.875rem; /* Adjust font size for smaller screens */
-	}
+  .card-text {
+    font-size: 0.875rem;
+  }
 
-	.spotify-button {
-		 width: 100%; /* Full width button on smaller screens */
-		 padding: 12px;
-		 font-size: 0.875rem;
-		 max-width: none; /* Remove max-width to prevent overflow */
-		 box-sizing: border-box; /* Include padding in width calculations */
-	}
+  .spotify-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.875rem;
+    max-width: none;
+    box-sizing: border-box;
+  }
 
-	.delete-button {
-		 position: static; /* Remove absolute positioning */
-		 margin-top: 10px; /* Space at the top */
-	}
+  .delete-button {
+    position: static;
+    margin-top: var(--small-spacing);
+  }
 }

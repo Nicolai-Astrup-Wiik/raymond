@@ -1,84 +1,94 @@
-/* Container for some buttons */
+@import './variables.module.css';
 
 .icon {
-	opacity: 0.6;
- }
+  opacity: 0.6;
+}
+
 .SomeButtonContainer {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: flex-end;
-	position: fixed;
-	bottom: 0;
-	right: 0;
-	height: auto;
-	width: fit-content;
-	padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: auto;
+  width: fit-content;
+  padding: var(--small-spacing);
 }
 
 /* Default button styles */
 .SomeButton {
-	outline: none;
-	background: transparent;
-	border: none;
-	cursor: pointer;
-	transition: transform 0.3s ease, padding 0.3s ease; /* Smooth transitions for scale and padding */
-	padding: 0.5rem; /* Default padding */
-	font-size: 1rem; /* Default font size */
+  outline: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, padding 0.3s ease;
+  padding: 0.5rem;
+  font-size: 1rem;
 }
 
 /* Hover state */
 .SomeButton:hover {
-	transform: scale(1.2); /* Increase the size by 20% on hover */
-	outline: none;
-	border: none;
+  transform: scale(1.2);
+  outline: none;
+  border: none;
 }
-.SomeButton:hover .icon{
-	opacity: 1;
+
+.SomeButton:hover .icon {
+  opacity: 1;
 }
 
 /* Focus state */
 .SomeButton:focus {
-	border: none;
-	outline: none;
+  border: none;
+  outline: none;
 }
 
 /* Mobile Styles */
-/* Mobile Styles */
+@media (max-height: 605px){
+  .SomeButton {
+  width: 40px;
+  height: 40px;
+  }
+  .SomeButton svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 @media (max-width: 768px) {
-	.SomeButtonContainer {
-		display: flex;
-		flex-direction: row; /* Arrange buttons horizontally */
-		align-items: center;
-		justify-content: center; /* Center buttons horizontally */
-		position: fixed;
-		padding: 0;
-		padding-top: 0.5rem;
-		padding-bottom: 0.5rem;
-		/*gap: 2rem;*/
-		width: 100%; /* Full width to accommodate horizontal layout */
-		background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the container */
-		backdrop-filter: blur(10px); /* Apply blur effect */
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Optional: shadow for better separation */
-	}
+  .SomeButtonContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px var(--shadow-color);
+  }
 
-	.SomeButton {
-		width: 30px; /* Set the width */
-		height: 30px; /* Set the height */
-		padding: 0; /* Remove padding to ensure the button is exactly 30x30 */
-		font-size: 0.75rem; /* Smaller font size */
-		margin: 0 1rem; /* Space between buttons */
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+  .SomeButton {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    font-size: 0.75rem;
+    margin: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-	.SomeButton svg {
-		width: 100%; /* Scale SVG to fit the button */
-		height: 100%; /* Scale SVG to fit the button */
-	}
+  .SomeButton svg {
+    width: 100%;
+    height: 100%;
+  }
 
-	.SomeButton:hover {
-		transform: scale(1.1); /* Slightly smaller scale increase on hover for mobile */
-	}
+  .SomeButton:hover {
+    transform: scale(1.1);
+  }
 }

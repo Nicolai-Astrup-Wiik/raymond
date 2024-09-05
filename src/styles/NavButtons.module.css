@@ -1,99 +1,86 @@
-/* NavButtons.module.css */
+@import './variables.module.css';
 
 /* Desktop Styles */
 .main-button-container {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	height: 80px;
-	/* padding: 0px 10px; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
 }
 
 .nav-button {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .nav-button,
 .nav-button-active {
-	font-size: larger;
-	background-color: transparent;
-	outline: none;
-	border: none;
-	width: 20rem;
-	transition: font-size 0.5s ease-in-out;
-	border-radius: 0;
-	white-space: nowrap;
+  font-size: larger;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  width: 20rem;
+  transition: font-size 0.5s ease-in-out;
+  border-radius: 0;
+  white-space: nowrap;
 }
 
 .nav-button-active {
-	font-size: x-large;
-	font-style: italic;
-	border-bottom: 1px solid white;
+  font-size: x-large;
+  font-style: italic;
+  border-bottom: 1px solid var(--font-color-white);
 }
-
 
 .nav-button:hover,
 .nav-button-active:hover {
-	font-size: x-large;
-	outline: none;
-	border: none;
-	font-style: italic;
-}
-.nav-button-active:hover {
-	border-bottom: 1px solid white;
+  font-size: x-large;
+  outline: none;
+  font-style: italic;
 }
 
 .nav-button:focus,
 .nav-button-active:focus {
-	background: transparent;
-	outline: none;
-	
-
+  background: transparent;
+  outline: none;
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-	.main-button-container {
-		
-		 padding-right: 50vw; /* Large right padding to push buttons out of view */
-		 overflow-x: auto;
-		 scroll-snap-type: x mandatory;
-		 display: flex;
-		 gap: 10px; /* Space between buttons */
-		 scrollbar-width: none; /* Hide scrollbar on Firefox */
-		 -ms-overflow-style: none; /* Hide scrollbar on IE and Edge */
-		 box-sizing: border-box; /* Include padding in width calculations */
-	}
+  .main-button-container {
+    padding-right: 50vw;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    gap: var(--small-spacing);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    box-sizing: border-box;
+  }
 
-	.main-button-container::-webkit-scrollbar {
-		 display: none; /* Hide scrollbar on Chrome, Safari, and Opera */
-	}
+  .main-button-container::-webkit-scrollbar {
+    display: none;
+  }
 
-	.main-button-container > button {
-		 scroll-snap-align: center;
-		 flex-shrink: 0;
-		 margin: 0 50vw; /* Large margin to push buttons out of view */
-		 transition: opacity 0.3s ease; /* Smooth transition for opacity */
-	}
+  .main-button-container > button {
+    scroll-snap-align: center;
+    flex-shrink: 0;
+    margin: 0 50vw;
+    transition: opacity 0.3s ease;
+  }
 
-	.carousel-active .nav-button {
-		 opacity: 0.5; /* Dim non-active buttons */
-	}
+  .carousel-active .nav-button {
+    opacity: 0.5;
+  }
 
-	.carousel-active .nav-button-active {
-		 opacity: 1; /* Ensure active button is fully visible */
-	}
-	.nav-button:focus,
-	.nav-button-active:focus {
-		background: transparent;
-		outline: none;
-		border-bottom: none;
-	}
-	.nav-button-active:hover {
-		border-bottom: none;
-	}
-	.nav-button-active{
-		border-bottom: none;
-	}
+  .carousel-active .nav-button-active {
+    opacity: 1;
+  }
+
+  .nav-button-active:hover {
+    border-bottom: none;
+  }
+
+  .nav-button-active {
+    border-bottom: none;
+  }
 }

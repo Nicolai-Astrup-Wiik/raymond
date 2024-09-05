@@ -63,11 +63,21 @@ export async function firebaseLogin(email, password) {
     const user = userCredential.user;
     return { type: "success", user };
   } catch (error) {
-    const errorMessage = error.message;
+    // Map Firebase errors to user-friendly messages
+    let errorMessage = "An error occurred. Please try again.";
+
+    if (
+      error.code === "auth/user-not-found" ||
+      error.code === "auth/wrong-password"
+    ) {
+      errorMessage = "Incorrect username or password.";
+    } else if (error.code === "auth/invalid-email") {
+      errorMessage = "Invalid email address.";
+    }
+
     return { type: "error", message: errorMessage };
   }
 }
-
 export const storage = getStorage();
 
 const imagesRef = ref(storage, "images");
